@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option go_package = "sportshot/proto/event";
+
+package event;
+
+service EventService {
+  rpc SearchEvents  (EventSearchRequest) returns (MessageReply) {}
+}
+
+message EventSearchRequest {
+  string league_name = 1;
+  string race_time = 2;
+  string home_name = 3;
+  string score = 4;
+  string away_name = 5;
+  string home_odds = 6;
+  string away_odds = 7;
+  string timestamp = 8;
+}
+
+message EventInfo {
+  string name = 1;
+  string type = 2;
+  string date = 3;
+  string location = 4;
+}
+
+message MessageReply {
+  repeated EventInfo eventInfo = 1;
+  string message = 2;
+  int32 status = 3;
+}
