@@ -3,6 +3,7 @@ package api
 import (
 	"context"
 	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
 	"net/http"
 	pb "sportshot/proto"
 	"sportshot/webservice/global"
@@ -15,6 +16,7 @@ func GetEvents(ctx *gin.Context) {
 		Date: "",
 	})
 	if err != nil {
+		zap.S()
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})

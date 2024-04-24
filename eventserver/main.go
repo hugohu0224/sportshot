@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"log"
 	"net"
@@ -16,9 +17,10 @@ type eventServer struct {
 }
 
 func (s *eventServer) SearchEvents(ctx context.Context, req *pb.SearchEventsRequest) (*pb.EventsReply, error) {
-	file, err := os.Open("events.json")
+	fileName := "events.json"
+	file, err := os.Open(fileName)
 	if err != nil {
-		fmt.Println("無法打開文件:", err)
+		zap.S().Info(fmt.Sprintf("Error opening file %s", fileName), zap.Error(err))
 		return &pb.EventsReply{}, err
 	}
 	defer file.Close()
@@ -30,7 +32,7 @@ func (s *eventServer) SearchEvents(ctx context.Context, req *pb.SearchEventsRequ
 	result := &pb.EventsReply{}
 	err = decoder.Decode(&result.EventInfo)
 	if err != nil {
-		fmt.Println("解析JSON時發生錯誤:", err)
+		zap.S().Info(fmt.Sprintf("Error parsing json file %s", fileName), zap.Error(err))
 		return &pb.EventsReply{}, err
 	}
 
@@ -40,12 +42,12 @@ func (s *eventServer) SearchEvents(ctx context.Context, req *pb.SearchEventsRequ
 func main() {
 	lis, err := net.Listen("tcp", ":50051")
 	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
+		zap.S().Panicf(fmt.Sprintf("failed to listen: %v", err), zap.Error(err))
 	}
 	s := grpc.NewServer()
 	pb.RegisterEventServiceServer(s, &eventServer{})
 	log.Printf("server listening at %v", lis.Addr())
 	if err := s.Serve(lis); err != nil {
-		log.Fatalf("failed to serve: %v", err)
+		zap.S().Panicf(fmt.Sprintf("failed to serve: %v", err), zap.Error(err))
 	}
 }
