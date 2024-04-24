@@ -22,7 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type EventServiceClient interface {
-	SearchEvents(ctx context.Context, in *EventSearchRequest, opts ...grpc.CallOption) (*MessageReply, error)
+	SearchEvents(ctx context.Context, in *SearchEventsRequest, opts ...grpc.CallOption) (*EventsReply, error)
 }
 
 type eventServiceClient struct {
@@ -33,8 +33,8 @@ func NewEventServiceClient(cc grpc.ClientConnInterface) EventServiceClient {
 	return &eventServiceClient{cc}
 }
 
-func (c *eventServiceClient) SearchEvents(ctx context.Context, in *EventSearchRequest, opts ...grpc.CallOption) (*MessageReply, error) {
-	out := new(MessageReply)
+func (c *eventServiceClient) SearchEvents(ctx context.Context, in *SearchEventsRequest, opts ...grpc.CallOption) (*EventsReply, error) {
+	out := new(EventsReply)
 	err := c.cc.Invoke(ctx, "/event.EventService/SearchEvents", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -46,7 +46,7 @@ func (c *eventServiceClient) SearchEvents(ctx context.Context, in *EventSearchRe
 // All implementations must embed UnimplementedEventServiceServer
 // for forward compatibility
 type EventServiceServer interface {
-	SearchEvents(context.Context, *EventSearchRequest) (*MessageReply, error)
+	SearchEvents(context.Context, *SearchEventsRequest) (*EventsReply, error)
 	mustEmbedUnimplementedEventServiceServer()
 }
 
@@ -54,7 +54,7 @@ type EventServiceServer interface {
 type UnimplementedEventServiceServer struct {
 }
 
-func (UnimplementedEventServiceServer) SearchEvents(context.Context, *EventSearchRequest) (*MessageReply, error) {
+func (UnimplementedEventServiceServer) SearchEvents(context.Context, *SearchEventsRequest) (*EventsReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SearchEvents not implemented")
 }
 func (UnimplementedEventServiceServer) mustEmbedUnimplementedEventServiceServer() {}
@@ -71,7 +71,7 @@ func RegisterEventServiceServer(s grpc.ServiceRegistrar, srv EventServiceServer)
 }
 
 func _EventService_SearchEvents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EventSearchRequest)
+	in := new(SearchEventsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -83,7 +83,7 @@ func _EventService_SearchEvents_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: "/event.EventService/SearchEvents",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EventServiceServer).SearchEvents(ctx, req.(*EventSearchRequest))
+		return srv.(EventServiceServer).SearchEvents(ctx, req.(*SearchEventsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

@@ -5,28 +5,27 @@ option go_package = "sportshot/proto/event";
 package event;
 
 service EventService {
-  rpc SearchEvents  (EventSearchRequest) returns (MessageReply) {}
+  rpc SearchEvents  (SearchEventsRequest) returns (EventsReply) {}
 }
 
-message EventSearchRequest {
-  string league_name = 1;
-  string race_time = 2;
-  string home_name = 3;
-  string score = 4;
-  string away_name = 5;
-  string home_odds = 6;
-  string away_odds = 7;
-  string timestamp = 8;
-}
-
-message EventInfo {
+message SearchEventsRequest {
   string name = 1;
   string type = 2;
   string date = 3;
-  string location = 4;
 }
 
-message MessageReply {
+message EventInfo {
+  string leagueName = 1;
+  string raceTime = 2;
+  string homeName = 3;
+  string score = 4;
+  string awayName = 5;
+  string homeOdds = 6;
+  string awayOdds = 7;
+  int64 timestamp = 8;
+}
+
+message EventsReply {
   repeated EventInfo eventInfo = 1;
   string message = 2;
   int32 status = 3;
