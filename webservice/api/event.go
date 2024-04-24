@@ -15,8 +15,8 @@ func GetEvents(ctx *gin.Context) {
 		Type: "",
 		Date: "",
 	})
+	zap.S().Info("search events")
 	if err != nil {
-		zap.S()
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})

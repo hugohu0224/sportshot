@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gocolly/colly/v2"
+	"go.uber.org/zap"
 	"log"
 	"os"
 	"sportshot/crawler/model"
@@ -12,10 +13,15 @@ import (
 )
 
 func main() {
+	// initialize logger
+	logger, _ := zap.NewDevelopment()
+	zap.ReplaceGlobals(logger)
+
 	c := colly.NewCollector()
 	c.OnHTML("#tbl_inplay > tbody", func(e *colly.HTMLElement) {
+		zap.S().Info("OnHTML")
 		currentTimestamp := time.Now().Unix()
-		events := []model.SportInfo{}
+		var events []model.SportInfo
 		// 找到tr (row)
 		e.ForEach("tr", func(_ int, el *colly.HTMLElement) {
 			event := model.SportInfo{}

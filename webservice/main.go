@@ -1,13 +1,21 @@
 package main
 
 import (
+	"go.uber.org/zap"
 	"sportshot/webservice/initinal"
 )
 
 func main() {
 	// initialize
 	initinal.InitLogger()
+	zap.S().Info("Logger initialized")
 	initinal.InitEventServerConn()
+	zap.S().Info("Event server initialized")
 	Router := initinal.InitRouters()
-	Router.Run("0.0.0.0:8081")
+	zap.S().Info("Router initialized")
+
+	err := Router.Run("localhost:8081")
+	if err != nil {
+		zap.S().Panicf("fail to start web server")
+	}
 }
