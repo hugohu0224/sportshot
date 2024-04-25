@@ -1,6 +1,6 @@
 package model
 
-type SportInfo struct {
+type SportEvent struct {
 	LeagueName string
 	RaceTime   string
 	HomeName   string
