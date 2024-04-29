@@ -2,7 +2,7 @@ package main
 
 import (
 	"go.uber.org/zap"
-	"sportshot/webservice/initinal"
+	"sportshot/webserver/initinal"
 )
 
 func main() {

@@ -5,7 +5,7 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"log"
 	pb "sportshot/proto"
-	"sportshot/webservice/global"
+	"sportshot/webserver/global"
 )
 
 func InitEventServerConn() {

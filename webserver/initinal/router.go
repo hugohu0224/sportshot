@@ -3,7 +3,7 @@ package initinal
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"sportshot/webservice/router"
+	"sportshot/webserver/router"
 )
 
 func InitRouters() *gin.Engine {

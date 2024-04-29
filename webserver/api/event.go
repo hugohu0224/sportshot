@@ -6,7 +6,7 @@ import (
 	"go.uber.org/zap"
 	"net/http"
 	pb "sportshot/proto"
-	"sportshot/webservice/global"
+	"sportshot/webserver/global"
 )
 
 func GetEvents(ctx *gin.Context) {

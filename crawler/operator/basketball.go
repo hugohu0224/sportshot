@@ -1,4 +1,4 @@
-package main
+package operator
 
 import (
 	"fmt"
@@ -8,10 +8,10 @@ import (
 	"time"
 )
 
-type basketballCrawler struct {
+type BasketballCrawler struct {
 }
 
-func (cr *basketballCrawler) crawl(url string) []model.SportEvent {
+func (cr *BasketballCrawler) Crawl(url string) []model.SportEvent {
 	c := colly.NewCollector()
 	// 避免後續Visit尚未完成就return，建立一個通道來接收result(阻塞)
 	resultChan := make(chan []model.SportEvent, 1)
