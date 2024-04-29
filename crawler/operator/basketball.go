@@ -3,6 +3,7 @@ package operator
 import (
 	"fmt"
 	"github.com/gocolly/colly/v2"
+	"go.uber.org/zap"
 	"sportshot/crawler/model"
 	"strings"
 	"time"
@@ -19,7 +20,7 @@ func (cr *BasketballCrawler) Crawl(url string) []model.SportEvent {
 	c.OnHTML("#tbl_inplay > tbody", func(e *colly.HTMLElement) {
 		currentTimestamp := time.Now().Unix()
 		var events []model.SportEvent
-
+		zap.S().Info("Basketball Events Crawling")
 		// 找到tr列表 (rows)
 		e.ForEach("tr", func(_ int, el *colly.HTMLElement) {
 			// 遍歷tr中的td (events in row)

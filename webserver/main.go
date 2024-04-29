@@ -16,6 +16,6 @@ func main() {
 
 	err := Router.Run("localhost:8081")
 	if err != nil {
-		zap.S().Panicf("fail to start web server")
+		zap.S().Panicf("Fail to start web server")
 	}
 }

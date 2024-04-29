@@ -21,6 +21,6 @@
 go.work
 
 # custom
-crawler/config.json
+config.json
 .dev
 .idea

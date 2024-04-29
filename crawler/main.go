@@ -8,45 +8,53 @@ import (
 	"go.uber.org/zap"
 	"log"
 	"os"
-	"sportshot/crawler/db"
+	"sportshot/crawler/global"
+	"sportshot/crawler/initial"
 	"sportshot/crawler/operator"
 	"time"
 )
 
 func main() {
-	// initialize logger
+	// initial logger
 	logger, _ := zap.NewDevelopment()
 	zap.ReplaceGlobals(logger)
+	zap.S().Infof("Logger initialized")
 
 	// initial basketball crawler
 	bc := operator.BasketballCrawler{}
-	url := "https://tw.betsapi.com/ciz/basketball"
+	zap.S().Infof("BasketballCrawler initialized")
 
 	// read config
-	data, err := os.ReadFile("./crawler/config.json")
+	data, err := os.ReadFile("config.json")
 	if err != nil {
-		log.Fatal(err)
+		zap.S().Fatalf("Error reading config.json: %v", err)
 	}
 	var config map[string]interface{}
 	if err := json.Unmarshal(data, &config); err != nil {
 		log.Fatal(err)
 	}
-	// get mongo info
+	zap.S().Infof("Loaded config %v", config)
+
+	// initial MongoClient
 	uri := config["mongodbURI"].(string)
-	client := db.GetMongoClient(uri)
+	initial.InitMongoClient(uri)
 	defer func(mongoc *mongo.Client, ctx context.Context) {
 		err := mongoc.Disconnect(ctx)
 		if err != nil {
 			zap.S().Fatal("Error disconnecting from mongodb:", err)
 		}
-	}(client, context.TODO())
+	}(global.MongodbClient, context.TODO())
+	zap.S().Infof("MongoClient initialized")
+
 	// connect to mongo
 	databaseName := "sportevents"
 	collectionName := "basketball"
-	collection := client.Database(databaseName).Collection(collectionName)
+	collection := global.MongodbClient.Database(databaseName).Collection(collectionName)
+	zap.S().Infof("Mongodb.%s.%s connected", databaseName, collectionName)
 
-	// start to crawl
+	// start to crawl basketball
 	for {
+		url := "https://tw.betsapi.com/ciz/basketball"
 		events := bc.Crawl(url)
 		doc := bson.M{"date": time.Now().Format("2006-01-02"), "events": events}
 
@@ -57,7 +65,7 @@ func main() {
 			zap.S().Info("Inserted a single document")
 		}
 
-		// Wait for 10 second before next crawl
+		// wait for 10 second before next crawl
 		time.Sleep(10 * time.Second)
 	}
 

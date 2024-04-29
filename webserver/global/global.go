@@ -1,9 +1,11 @@
 package global
 
 import (
+	"go.mongodb.org/mongo-driver/mongo"
 	pb "sportshot/proto"
 )
 
 var (
-	EnevtServerClient pb.EventServiceClient
+	EventServerClient pb.EventServiceClient
+	MongodbClient     *mongo.Client
 )

@@ -1,23 +1,23 @@
-package db
+package initinal
 
 import (
 	"context"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-
-	"log"
+	"go.uber.org/zap"
+	"sportshot/crawler/global"
 )
 
-func GetMongoClient(uri string) *mongo.Client {
+func InitMongoClient(uri string) {
 	clientOptions := options.Client().ApplyURI(uri)
 	client, err := mongo.Connect(context.TODO(), clientOptions)
 	if err != nil {
-		log.Fatal(err)
+		zap.S().Fatalf("Failed to connect to MongoDB : %v", err)
 	}
 	// 測試連線
 	err = client.Ping(context.TODO(), nil)
 	if err != nil {
-		log.Fatal(err)
+		zap.S().Fatalf("Failed to ping MongoDB : %v", err)
 	}
-	return client
+	global.MongodbClient = client
 }

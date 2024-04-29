@@ -7,19 +7,27 @@ import (
 	"net/http"
 	pb "sportshot/proto"
 	"sportshot/webserver/global"
+	"sportshot/webserver/model"
 )
 
 func GetEvents(ctx *gin.Context) {
-	res, err := global.EnevtServerClient.SearchEvents(context.Background(), &pb.SearchEventsRequest{
-		Name: "",
-		Type: "",
-		Date: "",
+	var form model.SearchEventsForm
+	if err := ctx.ShouldBindQuery(&form); err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		zap.S().Errorf("GetEvents err: %v", err)
+		return
+	}
+
+	res, err := global.EventServerClient.SearchEvents(context.Background(), &pb.SearchEventsRequest{
+		Name: form.Name,
+		Type: form.Type,
+		Date: form.Date,
 	})
-	zap.S().Info("search events")
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
 		})
+		zap.S().Errorf("search events error: %v", err)
 		return
 	}
 
