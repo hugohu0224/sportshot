@@ -12,22 +12,22 @@ type basketballCrawler struct {
 }
 
 func (cr *basketballCrawler) crawl(url string) []model.SportEvent {
-
 	c := colly.NewCollector()
-
 	// 避免後續Visit尚未完成就return，建立一個通道來接收result(阻塞)
 	resultChan := make(chan []model.SportEvent, 1)
 
 	c.OnHTML("#tbl_inplay > tbody", func(e *colly.HTMLElement) {
 		currentTimestamp := time.Now().Unix()
 		var events []model.SportEvent
-		// 找到tr (row)
+
+		// 找到tr列表 (rows)
 		e.ForEach("tr", func(_ int, el *colly.HTMLElement) {
+			// 遍歷tr中的td (events in row)
 			event := model.SportEvent{}
-			// 因多個不同欄位使用同個class tag，因此使用順序方式獲取event
 			columnIdx := 0
-			// 遍歷tr中的td (event in row)
+
 			el.ForEach("td", func(index int, td *colly.HTMLElement) {
+				// 因多個不同欄位使用同個class tag，因此使用順序方式獲取event
 				event.Timestamp = int(currentTimestamp)
 				switch columnIdx {
 				case 0:
