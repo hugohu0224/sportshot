@@ -20,23 +20,10 @@ type eventServer struct {
 	event.UnimplementedEventServiceServer
 }
 
-func getString(v interface{}) string {
-	if s, ok := v.(string); ok {
-		return s
-	}
-	return ""
-}
-
-func getInt64(v interface{}) int64 {
-	if i, ok := v.(int64); ok {
-		return i
-	}
-	return 0
-}
-
 func (s *eventServer) SearchEvents(ctx context.Context, req *event.SearchEventsRequest) (*event.EventsReply, error) {
 	searchFilter := bson.M{}
 
+	// filter setting by request arguments
 	if req.Name != "" {
 		searchFilter["name"] = req.Name
 	}
@@ -52,6 +39,10 @@ func (s *eventServer) SearchEvents(ctx context.Context, req *event.SearchEventsR
 	collectionName := "basketball"
 	collection := global.MongodbClient.Database(databaseName).Collection(collectionName)
 	zap.S().Infof("connected to mongodb, start to search events")
+
+	// start to search
+	zap.S().Debugf("search filter: %v", searchFilter)
+	zap.S().Info("start to search")
 	cursor, err := collection.Find(context.TODO(), searchFilter)
 	if err != nil {
 		return nil, err
@@ -66,20 +57,22 @@ func (s *eventServer) SearchEvents(ctx context.Context, req *event.SearchEventsR
 
 	// processing data
 	var results []bson.M
-	if err = cursor.All(context.TODO(), &results); err != nil {
-		return nil, err
-	}
-
-	// data from bson.M to EventsReply
+	var data event.EventInfo
 	reply := &event.EventsReply{
 		EventInfo: nil,
 		Message:   "query success",
 		Status:    200,
 	}
 
+	if err = cursor.All(context.TODO(), &results); err != nil {
+		return nil, err
+	}
+
+	// fetch single events document
 	for _, result := range results {
+		// get events
 		if pvs, ok := result["events"].(primitive.A); ok {
-			var data event.EventInfo
+			// get single event
 			for _, pv := range pvs {
 				mpv, err := bson.Marshal(pv)
 				if err != nil {
@@ -88,6 +81,7 @@ func (s *eventServer) SearchEvents(ctx context.Context, req *event.SearchEventsR
 				if err := bson.Unmarshal(mpv, &data); err != nil {
 					return nil, err
 				}
+				// append single event to EventInfo
 				reply.EventInfo = append(reply.EventInfo, &data)
 			}
 		}

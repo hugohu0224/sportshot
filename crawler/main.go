@@ -53,8 +53,7 @@ func main() {
 
 	// start to crawl basketball
 	for {
-		url := "https://tw.betsapi.com/ciz/basketball"
-		events := bc.Crawl(url)
+		events := bc.Crawl()
 		doc := bson.M{"date": time.Now().Format("2006-01-02"), "events": events}
 
 		// insert data
