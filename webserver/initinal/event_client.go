@@ -4,7 +4,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"log"
-	pb "sportshot/proto"
+	pb "sportshot/utils/proto"
 	"sportshot/webserver/global"
 )
 

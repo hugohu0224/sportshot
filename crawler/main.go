@@ -6,11 +6,10 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.uber.org/zap"
-	"log"
 	"os"
 	"sportshot/crawler/global"
-	"sportshot/crawler/initial"
 	"sportshot/crawler/operator"
+	"sportshot/utils/db"
 	"time"
 )
 
@@ -18,7 +17,7 @@ func main() {
 	// initial logger
 	logger, _ := zap.NewDevelopment()
 	zap.ReplaceGlobals(logger)
-	zap.S().Infof("Logger initialized")
+	zap.S().Infof("logger initialized")
 
 	// initial basketball crawler
 	bc := operator.BasketballCrawler{}
@@ -27,24 +26,24 @@ func main() {
 	// read config
 	data, err := os.ReadFile("config.json")
 	if err != nil {
-		zap.S().Fatalf("Error reading config.json: %v", err)
+		zap.S().Fatalf("error reading config.json: %v", err)
 	}
 	var config map[string]interface{}
 	if err := json.Unmarshal(data, &config); err != nil {
-		log.Fatal(err)
+		zap.S().Fatalf("error parsing config.json: %v", err)
 	}
-	zap.S().Infof("Loaded config %v", config)
+	zap.S().Infof("loaded config %v", config)
 
 	// initial MongoClient
 	uri := config["mongodbURI"].(string)
-	initial.InitMongoClient(uri)
-	defer func(mongoc *mongo.Client, ctx context.Context) {
-		err := mongoc.Disconnect(ctx)
+	global.MongodbClient = db.GetMongoClient(uri)
+	defer func(c *mongo.Client, ctx context.Context) {
+		err := c.Disconnect(ctx)
 		if err != nil {
-			zap.S().Fatal("Error disconnecting from mongodb:", err)
+			zap.S().Fatal("error disconnecting from mongodb:", err)
 		}
 	}(global.MongodbClient, context.TODO())
-	zap.S().Infof("MongoClient initialized")
+	zap.S().Infof("mongoClient initialized")
 
 	// connect to mongo
 	databaseName := "sportevents"
@@ -60,9 +59,9 @@ func main() {
 
 		// insert data
 		if _, err := collection.InsertOne(context.TODO(), doc); err != nil {
-			zap.S().Error("Failed to insert document:", err)
+			zap.S().Error("failed to insert document:", err)
 		} else {
-			zap.S().Info("Inserted a single document")
+			zap.S().Info("inserted a single document")
 		}
 
 		// wait for 10 second before next crawl

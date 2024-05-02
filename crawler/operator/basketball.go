@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/gocolly/colly/v2"
 	"go.uber.org/zap"
-	"sportshot/crawler/model"
+	"sportshot/utils/models/event"
 	"strings"
 	"time"
 )
@@ -12,19 +12,19 @@ import (
 type BasketballCrawler struct {
 }
 
-func (cr *BasketballCrawler) Crawl(url string) []model.SportEvent {
+func (cr *BasketballCrawler) Crawl(url string) []event.SportEvent {
 	c := colly.NewCollector()
 	// 避免後續Visit尚未完成就return，建立一個通道來接收result(阻塞)
-	resultChan := make(chan []model.SportEvent, 1)
+	resultChan := make(chan []event.SportEvent, 1)
 
 	c.OnHTML("#tbl_inplay > tbody", func(e *colly.HTMLElement) {
 		currentTimestamp := time.Now().Unix()
-		var events []model.SportEvent
-		zap.S().Info("Basketball Events Crawling")
+		var events []event.SportEvent
+		zap.S().Info("crawling basketball events ")
 		// 找到tr列表 (rows)
 		e.ForEach("tr", func(_ int, el *colly.HTMLElement) {
 			// 遍歷tr中的td (events in row)
-			event := model.SportEvent{}
+			event := event.SportEvent{}
 			columnIdx := 0
 
 			el.ForEach("td", func(index int, td *colly.HTMLElement) {
@@ -49,34 +49,15 @@ func (cr *BasketballCrawler) Crawl(url string) []model.SportEvent {
 				columnIdx += 1
 			})
 
-			//// 美化stdout
-			//jsonData, err := json.MarshalIndent(events, "", "    ")
-			//if err != nil {
-			//	log.Println("Error marshaling data:", err)
-			//	return
-			//}
-			//fmt.Println("Data extracted:\n", string(jsonData))
-
 			// 收集events
 			events = append(events, event)
 		})
 
-		// localize data
-		//file, err := os.Create("events.json")
-		//if err != nil {
-		//	panic(err)
-		//}
-		//defer file.Close()
-		//encoder := json.NewEncoder(file)
-		//err = encoder.Encode(events)
-		//if err != nil {
-		//	panic(err)
-		//}
 		resultChan <- events
 	})
 
 	c.OnRequest(func(r *colly.Request) {
-		fmt.Println("Visiting", r.URL.String())
+		fmt.Println("visiting", r.URL.String())
 	})
 
 	//err := c.Visit("https://tw.betsapi.com/ciz/basketball")

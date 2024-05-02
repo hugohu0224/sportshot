@@ -5,13 +5,13 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 	"net/http"
-	pb "sportshot/proto"
+	"sportshot/utils/models/event"
+	pb "sportshot/utils/proto"
 	"sportshot/webserver/global"
-	"sportshot/webserver/model"
 )
 
 func GetEvents(ctx *gin.Context) {
-	var form model.SearchEventsForm
+	var form event.SearchEventsForm
 	if err := ctx.ShouldBindQuery(&form); err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		zap.S().Errorf("GetEvents err: %v", err)

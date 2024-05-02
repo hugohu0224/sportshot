@@ -8,14 +8,14 @@ import (
 func main() {
 	// initialize
 	initinal.InitLogger()
-	zap.S().Info("Logger initialized")
+	zap.S().Info("logger initialized")
 	initinal.InitEventServerConn()
-	zap.S().Info("Event server initialized")
+	zap.S().Info("event server initialized")
 	Router := initinal.InitRouters()
-	zap.S().Info("Router initialized")
+	zap.S().Info("router initialized")
 
 	err := Router.Run("localhost:8081")
 	if err != nil {
-		zap.S().Panicf("Fail to start web server")
+		zap.S().Panicf("fail to start web server")
 	}
 }
