@@ -1,0 +1,3 @@
+{
+  "mongodbURI": "mongodb://account:password@localhost:27017"
+}
