@@ -19,9 +19,9 @@ func GetEvents(ctx *gin.Context) {
 	}
 
 	res, err := global.EventServerClient.SearchEvents(context.Background(), &pb.SearchEventsRequest{
-		Name: form.Name,
-		Type: form.Type,
-		Date: form.Date,
+		LeagueName: form.LeagueName,
+		Type:       form.Type,
+		Date:       form.Date,
 	})
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{

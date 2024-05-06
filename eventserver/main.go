@@ -12,26 +12,23 @@ import (
 	"net"
 	"os"
 	"sportshot/utils/db"
-	"sportshot/utils/proto"
+	pb "sportshot/utils/proto"
 	"sportshot/webserver/global"
 )
 
 type eventServer struct {
-	event.UnimplementedEventServiceServer
+	pb.UnimplementedEventServiceServer
 }
 
-func (s *eventServer) SearchEvents(ctx context.Context, req *event.SearchEventsRequest) (*event.EventsReply, error) {
-	searchFilter := bson.M{}
+func (s *eventServer) SearchEvents(ctx context.Context, req *pb.SearchEventsRequest) (*pb.EventsReply, error) {
 
-	// filter setting by request arguments
-	if req.Name != "" {
-		searchFilter["name"] = req.Name
-	}
-	if req.Type != "" {
-		searchFilter["type"] = req.Type
-	}
-	if req.Date != "" {
-		searchFilter["date"] = req.Date
+	//try mongodb filter
+	searchFilter := bson.M{
+		"events": bson.M{
+			"$elemMatch": bson.M{
+				"leagueName": "哥斯達黎加LDB Superior",
+			},
+		},
 	}
 
 	// connect to mongodb
@@ -57,8 +54,7 @@ func (s *eventServer) SearchEvents(ctx context.Context, req *event.SearchEventsR
 
 	// processing data
 	var results []bson.M
-	var data event.EventInfo
-	reply := &event.EventsReply{
+	reply := &pb.EventsReply{
 		EventInfo: nil,
 		Message:   "query success",
 		Status:    200,
@@ -74,6 +70,7 @@ func (s *eventServer) SearchEvents(ctx context.Context, req *event.SearchEventsR
 		if pvs, ok := result["events"].(primitive.A); ok {
 			// get single event
 			for _, pv := range pvs {
+				var data pb.EventInfo
 				mpv, err := bson.Marshal(pv)
 				if err != nil {
 					return nil, err
@@ -85,7 +82,6 @@ func (s *eventServer) SearchEvents(ctx context.Context, req *event.SearchEventsR
 				reply.EventInfo = append(reply.EventInfo, &data)
 			}
 		}
-
 	}
 	return reply, nil
 }
@@ -119,7 +115,7 @@ func main() {
 		zap.S().Panicf(fmt.Sprintf("failed to listen: %v", err), zap.Error(err))
 	}
 	s := grpc.NewServer()
-	event.RegisterEventServiceServer(s, &eventServer{})
+	pb.RegisterEventServiceServer(s, &eventServer{})
 	zap.S().Infof("server listening at %v", lis.Addr())
 	if err := s.Serve(lis); err != nil {
 		zap.S().Panicf(fmt.Sprintf("failed to serve: %v", err), zap.Error(err))
