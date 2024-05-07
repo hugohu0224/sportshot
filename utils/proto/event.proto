@@ -10,8 +10,9 @@ service EventService {
 
 message SearchEventsRequest {
   string LeagueName = 1;
-  string type = 2;
-  string date = 3;
+  string SportType = 2;
+  string StartDate = 3;
+  string EndDate = 4;
 }
 
 message EventInfo {
@@ -22,11 +23,12 @@ message EventInfo {
   string awayName = 5;
   string homeOdds = 6;
   string awayOdds = 7;
-  int64 timestamp = 8;
+  string date = 8;
+  int64 timestamp = 9;
 }
 
 message EventsReply {
-  repeated EventInfo eventInfo = 1;
+  repeated EventInfo events = 1;
   string message = 2;
   int32 status = 3;
 }
