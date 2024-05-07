@@ -8,16 +8,17 @@ type SportEvent struct {
 	AwayName   string `bson:"awayName"   json:"awayName"`
 	HomeOdds   string `bson:"homeOdds"   json:"homeOdds"`
 	AwayOdds   string `bson:"awayOdds"   json:"awayOdds"`
+	Date       string `bson:"date"       json:"date"`
 	Timestamp  int    `bson:"timestamp"  json:"timestamp"`
 }
 
 type SearchEventsForm struct {
 	LeagueName string `json:"leagueName" form:"leagueName"`
-	Type       string `json:"type" form:"type"`
-	Date       string `json:"date" form:"date"`
+	SportType  string `json:"sportType" form:"sportType"`
+	StartDate  string `json:"startDate" form:"startDate"`
+	EndDate    string `json:"endDate" form:"endDate"`
 }
 
-// SetDefaults 設置結構體的預設值
 func (g *SearchEventsForm) SetDefaults() {
 
 }

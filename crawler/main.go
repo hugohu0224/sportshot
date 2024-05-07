@@ -37,7 +37,6 @@ func main() {
 	for {
 		events := bc.Crawl()
 		bc.SaveToMongo(events)
-		// wait for 10 second before next crawl
 		time.Sleep(10 * time.Second)
 	}
 }

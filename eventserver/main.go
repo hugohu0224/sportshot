@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
@@ -13,6 +12,7 @@ import (
 	"sportshot/utils/db"
 	pb "sportshot/utils/proto"
 	"sportshot/webserver/global"
+	"time"
 )
 
 type eventServer struct {
@@ -20,14 +20,25 @@ type eventServer struct {
 }
 
 func (s *eventServer) SearchEvents(ctx context.Context, req *pb.SearchEventsRequest) (*pb.EventsReply, error) {
+	// initial filter
+	filter := bson.D{}
 
-	//try mongodb filter
-	searchFilter := bson.M{
-		"events": bson.M{
-			"$elemMatch": bson.M{
-				"leagueName": "韓國College",
-			},
-		},
+	// default filter
+	yesterday := time.Now().AddDate(0, 0, -1).Format("2006-01-02")
+	filter = append(filter, bson.E{Key: "date", Value: bson.M{"$gte": yesterday}})
+
+	// condition filter
+	if req.LeagueName != "" {
+		filter = append(filter, bson.E{Key: "leagueName", Value: req.LeagueName})
+	}
+	if req.SportType != "" {
+		filter = append(filter, bson.E{Key: "sportType", Value: req.SportType})
+	}
+	if req.StartDate != "" {
+		filter = append(filter, bson.E{Key: "date", Value: bson.M{"$gte": req.StartDate}})
+	}
+	if req.EndDate != "" {
+		filter = append(filter, bson.E{Key: "date", Value: bson.M{"$lte": req.EndDate}})
 	}
 
 	// connect to mongodb
@@ -37,13 +48,12 @@ func (s *eventServer) SearchEvents(ctx context.Context, req *pb.SearchEventsRequ
 	zap.S().Infof("connected to mongodb, start to search events")
 
 	// start to search
-	zap.S().Debugf("search filter: %v", searchFilter)
-	zap.S().Info("start to search")
-	cursor, err := collection.Find(context.TODO(), searchFilter)
+	zap.S().Infof("start to search by filter : %v", filter)
+	cursor, err := collection.Find(context.TODO(), filter)
 	if err != nil {
 		return nil, err
 	}
-	zap.S().Infof("search events successfully")
+	zap.S().Infof("search successfully")
 	defer func(cursor *mongo.Cursor, ctx context.Context) {
 		err := cursor.Close(ctx)
 		if err != nil {
@@ -52,36 +62,18 @@ func (s *eventServer) SearchEvents(ctx context.Context, req *pb.SearchEventsRequ
 	}(cursor, context.TODO())
 
 	// processing data
-	var results []bson.M
-	reply := &pb.EventsReply{
-		EventInfo: nil,
-		Message:   "query success",
-		Status:    200,
-	}
-
+	var results []*pb.EventInfo
 	if err = cursor.All(context.TODO(), &results); err != nil {
 		return nil, err
 	}
 
-	// fetch single events document
-	for _, result := range results {
-		// get events
-		if pvs, ok := result["events"].(primitive.A); ok {
-			// get single event
-			for _, pv := range pvs {
-				var data pb.EventInfo
-				mpv, err := bson.Marshal(pv)
-				if err != nil {
-					return nil, err
-				}
-				if err := bson.Unmarshal(mpv, &data); err != nil {
-					return nil, err
-				}
-				// append single event to EventInfo
-				reply.EventInfo = append(reply.EventInfo, &data)
-			}
-		}
+	// reorg reply
+	reply := &pb.EventsReply{
+		Events:  results,
+		Message: "query success",
+		Status:  200,
 	}
+
 	return reply, nil
 }
 func main() {
@@ -111,6 +103,8 @@ func main() {
 	if err != nil {
 		zap.S().Panicf(fmt.Sprintf("failed to listen: %v", err), zap.Error(err))
 	}
+
+	// start to serve
 	s := grpc.NewServer()
 	pb.RegisterEventServiceServer(s, &eventServer{})
 	zap.S().Infof("server listening at %v", lis.Addr())

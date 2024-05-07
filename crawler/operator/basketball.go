@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"github.com/gocolly/colly/v2"
-	"go.mongodb.org/mongo-driver/bson"
 	"go.uber.org/zap"
 	"sportshot/crawler/global"
 	"sportshot/utils/models/event"
@@ -13,24 +12,6 @@ import (
 )
 
 type BasketballCrawler struct {
-}
-
-func (cr *BasketballCrawler) SaveToMongo(events []event.SportEvent) {
-	// reorg data
-	doc := bson.M{"date": time.Now().Format("2020-01-01"), "events": events}
-
-	// connect to mongo
-	databaseName := "sportevents"
-	collectionName := "basketball"
-	collection := global.MongodbClient.Database(databaseName).Collection(collectionName)
-	zap.S().Infof("start to insert data to Mongodb.%s.%s", databaseName, collectionName)
-
-	// insert data
-	if _, err := collection.InsertOne(context.TODO(), doc); err != nil {
-		zap.S().Error("failed to insert document:", err)
-	} else {
-		zap.S().Infof("Mongodb.%s.%s data inserted", databaseName, collectionName)
-	}
 }
 
 func (cr *BasketballCrawler) Crawl() []event.SportEvent {
@@ -55,6 +36,7 @@ func (cr *BasketballCrawler) Crawl() []event.SportEvent {
 				// since many different columns use the same class tag,
 				// the event is retrieved in sequential order.
 				ev.Timestamp = int(currentTimestamp)
+				ev.Date = time.Now().Format("2006-01-02")
 				switch columnIdx {
 				case 0:
 					ev.LeagueName = strings.TrimSpace(td.Text)
@@ -88,4 +70,26 @@ func (cr *BasketballCrawler) Crawl() []event.SportEvent {
 	}
 
 	return <-resultChan
+}
+
+func (cr *BasketballCrawler) SaveToMongo(events []event.SportEvent) {
+	// connect to mongo
+	databaseName := "sportevents"
+	collectionName := "basketball"
+	collection := global.MongodbClient.Database(databaseName).Collection(collectionName)
+
+	// Convert SportEvent type to interface{} due to mongodb insertion requirements
+	var docs []interface{}
+	for _, e := range events {
+		docs = append(docs, e)
+	}
+
+	// start to insert
+	zap.S().Infof("start to insert data to Mongodb.%s.%s", databaseName, collectionName)
+	result, err := collection.InsertMany(context.TODO(), docs)
+	if err != nil {
+		zap.S().Errorf(err.Error())
+	}
+	zap.S().Infof("inserted docs %s to Mongodb.%s.%s", result.InsertedIDs, databaseName, collectionName)
+
 }

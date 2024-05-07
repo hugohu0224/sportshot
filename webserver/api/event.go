@@ -11,17 +11,18 @@ import (
 )
 
 func GetEvents(ctx *gin.Context) {
-	var form event.SearchEventsForm
-	if err := ctx.ShouldBindQuery(&form); err != nil {
+	var f event.SearchEventsForm
+	if err := ctx.ShouldBindQuery(&f); err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		zap.S().Errorf("GetEvents err: %v", err)
 		return
 	}
 
 	res, err := global.EventServerClient.SearchEvents(context.Background(), &pb.SearchEventsRequest{
-		LeagueName: form.LeagueName,
-		Type:       form.Type,
-		Date:       form.Date,
+		LeagueName: f.LeagueName,
+		SportType:  f.SportType,
+		StartDate:  f.StartDate,
+		EndDate:    f.EndDate,
 	})
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{
