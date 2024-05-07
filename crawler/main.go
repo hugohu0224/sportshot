@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.uber.org/zap"
 	"os"
@@ -45,24 +44,10 @@ func main() {
 	}(global.MongodbClient, context.TODO())
 	zap.S().Infof("mongoClient initialized")
 
-	// connect to mongo
-	databaseName := "sportevents"
-	collectionName := "basketball"
-	collection := global.MongodbClient.Database(databaseName).Collection(collectionName)
-	zap.S().Infof("Mongodb.%s.%s connected", databaseName, collectionName)
-
 	// start to crawl basketball
 	for {
 		events := bc.Crawl()
-		doc := bson.M{"date": time.Now().Format("2006-01-02"), "events": events}
-
-		// insert data
-		if _, err := collection.InsertOne(context.TODO(), doc); err != nil {
-			zap.S().Error("failed to insert document:", err)
-		} else {
-			zap.S().Info("inserted a single document")
-		}
-
+		bc.SaveToMongo(events)
 		// wait for 10 second before next crawl
 		time.Sleep(10 * time.Second)
 	}

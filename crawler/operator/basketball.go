@@ -1,15 +1,36 @@
 package operator
 
 import (
+	"context"
 	"fmt"
 	"github.com/gocolly/colly/v2"
+	"go.mongodb.org/mongo-driver/bson"
 	"go.uber.org/zap"
+	"sportshot/crawler/global"
 	"sportshot/utils/models/event"
 	"strings"
 	"time"
 )
 
 type BasketballCrawler struct {
+}
+
+func (cr *BasketballCrawler) SaveToMongo(events []event.SportEvent) {
+	// reorg data
+	doc := bson.M{"date": time.Now().Format("2006-01-02"), "events": events}
+
+	// connect to mongo
+	databaseName := "sportevents"
+	collectionName := "basketball"
+	collection := global.MongodbClient.Database(databaseName).Collection(collectionName)
+	zap.S().Infof("start to insert data to Mongodb.%s.%s", databaseName, collectionName)
+
+	// insert data
+	if _, err := collection.InsertOne(context.TODO(), doc); err != nil {
+		zap.S().Error("failed to insert document:", err)
+	} else {
+		zap.S().Infof("Mongodb.%s.%s data inserted", databaseName, collectionName)
+	}
 }
 
 func (cr *BasketballCrawler) Crawl() []event.SportEvent {
