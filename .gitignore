@@ -21,6 +21,6 @@
 go.work
 
 # custom
-config.json
+config.yaml
 .dev
 .idea

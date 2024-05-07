@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -10,7 +9,7 @@ import (
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"net"
-	"os"
+	"sportshot/utils/config"
 	"sportshot/utils/db"
 	pb "sportshot/utils/proto"
 	"sportshot/webserver/global"
@@ -26,7 +25,7 @@ func (s *eventServer) SearchEvents(ctx context.Context, req *pb.SearchEventsRequ
 	searchFilter := bson.M{
 		"events": bson.M{
 			"$elemMatch": bson.M{
-				"leagueName": "哥斯達黎加LDB Superior",
+				"leagueName": "韓國College",
 			},
 		},
 	}
@@ -93,21 +92,19 @@ func main() {
 	}
 	zap.ReplaceGlobals(logger)
 
-	// read config
-	zap.S().Infof("reading config file...")
-	data, err := os.ReadFile("config.json")
-	if err != nil {
-		zap.S().Fatalf("error reading config.json: %v", err)
-	}
-	var config map[string]interface{}
-	if err := json.Unmarshal(data, &config); err != nil {
-		zap.S().Fatalf("error parsing config.json: %v", err)
-	}
-	zap.S().Infof("loaded config %v", config)
+	// initial config
+	config.InitConfigByViper()
+	uri := db.GetMongodbURI()
 
-	// initial mongodb
-	uri := config["mongodbURI"].(string)
-	global.MongodbClient = db.GetMongoClient(uri)
+	// initial MongodbClient
+	global.MongodbClient = db.GetMongodbClient(uri)
+	defer func(c *mongo.Client, ctx context.Context) {
+		err := c.Disconnect(ctx)
+		if err != nil {
+			zap.S().Fatal("error disconnecting from mongodb:", err)
+		}
+	}(global.MongodbClient, context.TODO())
+	zap.S().Infof("mongoClient initialized")
 
 	// initial server
 	lis, err := net.Listen("tcp", ":50051")

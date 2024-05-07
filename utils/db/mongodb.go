@@ -2,12 +2,14 @@ package db
 
 import (
 	"context"
+	"fmt"
+	"github.com/spf13/viper"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.uber.org/zap"
 )
 
-func GetMongoClient(uri string) *mongo.Client {
+func GetMongodbClient(uri string) *mongo.Client {
 	zap.S().Infof("connecting to MongoDB at %s", uri)
 	clientOptions := options.Client().ApplyURI(uri).
 		SetMaxPoolSize(20).
@@ -23,4 +25,13 @@ func GetMongoClient(uri string) *mongo.Client {
 		zap.S().Fatalf("failed to ping MongoDB : %v", err)
 	}
 	return client
+}
+
+func GetMongodbURI() string {
+	user := viper.GetString("mongodb.user")
+	password := viper.GetString("mongodb.password")
+	host := viper.GetString("mongodb.host")
+	port := viper.GetString("mongodb.port")
+	uri := fmt.Sprintf("mongodb://%s:%s@%s:%s", user, password, host, port)
+	return uri
 }

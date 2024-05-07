@@ -2,12 +2,11 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.uber.org/zap"
-	"os"
 	"sportshot/crawler/global"
 	"sportshot/crawler/operator"
+	"sportshot/utils/config"
 	"sportshot/utils/db"
 	"time"
 )
@@ -22,20 +21,10 @@ func main() {
 	bc := operator.BasketballCrawler{}
 	zap.S().Infof("BasketballCrawler initialized")
 
-	// read config
-	data, err := os.ReadFile("config.json")
-	if err != nil {
-		zap.S().Fatalf("error reading config.json: %v", err)
-	}
-	var config map[string]interface{}
-	if err := json.Unmarshal(data, &config); err != nil {
-		zap.S().Fatalf("error parsing config.json: %v", err)
-	}
-	zap.S().Infof("loaded config %v", config)
-
-	// initial MongoClient
-	uri := config["mongodbURI"].(string)
-	global.MongodbClient = db.GetMongoClient(uri)
+	// initial config
+	config.InitConfigByViper()
+	uri := db.GetMongodbURI()
+	global.MongodbClient = db.GetMongodbClient(uri)
 	defer func(c *mongo.Client, ctx context.Context) {
 		err := c.Disconnect(ctx)
 		if err != nil {
@@ -44,12 +33,11 @@ func main() {
 	}(global.MongodbClient, context.TODO())
 	zap.S().Infof("mongoClient initialized")
 
-	// start to crawl basketball
+	// start to crawl basketball odds
 	for {
 		events := bc.Crawl()
 		bc.SaveToMongo(events)
 		// wait for 10 second before next crawl
 		time.Sleep(10 * time.Second)
 	}
-
 }

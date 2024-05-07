@@ -10,7 +10,7 @@ func main() {
 	initinal.InitLogger()
 	zap.S().Info("logger initialized")
 	initinal.InitEventServerConn()
-	zap.S().Info("event server initialized")
+	zap.S().Info("eventserver initialized")
 	Router := initinal.InitRouters()
 	zap.S().Info("router initialized")
 

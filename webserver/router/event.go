@@ -10,5 +10,4 @@ func InitEventRouter(router *gin.RouterGroup) {
 	{
 		Router.GET("/", api.GetEvents)
 	}
-
 }
