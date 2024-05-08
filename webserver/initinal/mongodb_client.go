@@ -5,7 +5,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.uber.org/zap"
-	"sportshot/crawler/global"
+	"sportshot/utils/global"
 )
 
 func InitMongoClient(uri string) {

@@ -1,25 +1,20 @@
-package main
+package service
 
 import (
 	"context"
-	"fmt"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.uber.org/zap"
-	"google.golang.org/grpc"
-	"net"
-	"sportshot/utils/config"
-	"sportshot/utils/db"
+	"sportshot/utils/global"
 	pb "sportshot/utils/proto"
-	"sportshot/webserver/global"
 	"time"
 )
 
-type eventServer struct {
+type EventServer struct {
 	pb.UnimplementedEventServiceServer
 }
 
-func (s *eventServer) SearchEvents(ctx context.Context, req *pb.SearchEventsRequest) (*pb.EventsReply, error) {
+func (s *EventServer) SearchEvents(ctx context.Context, req *pb.SearchEventsRequest) (*pb.EventsReply, error) {
 	// initial filter
 	filter := bson.D{}
 
@@ -75,42 +70,4 @@ func (s *eventServer) SearchEvents(ctx context.Context, req *pb.SearchEventsRequ
 	}
 
 	return reply, nil
-}
-func main() {
-	// initial logger
-	logger, err := zap.NewDevelopment()
-	if err != nil {
-		logger.Panic(err.Error())
-	}
-	zap.ReplaceGlobals(logger)
-
-	// initial config
-	config.InitConfigByViper()
-	uri := db.GetMongodbURI()
-	zap.S().Infof("viper(config system) initialized")
-
-	// initial MongodbClient
-	global.MongodbClient = db.GetMongodbClient(uri)
-	defer func(c *mongo.Client, ctx context.Context) {
-		err := c.Disconnect(ctx)
-		if err != nil {
-			zap.S().Fatal("error disconnecting from mongodb:", err)
-		}
-	}(global.MongodbClient, context.TODO())
-	zap.S().Infof("mongoClient initialized")
-
-	// initial server
-	lis, err := net.Listen("tcp", ":50051")
-	if err != nil {
-		zap.S().Panicf(fmt.Sprintf("failed to listen: %v", err), zap.Error(err))
-	}
-
-	// start to serve
-	s := grpc.NewServer()
-	pb.RegisterEventServiceServer(s, &eventServer{})
-	zap.S().Infof("server listening at %v", lis.Addr())
-	if err := s.Serve(lis); err != nil {
-		zap.S().Panicf(fmt.Sprintf("failed to serve: %v", err), zap.Error(err))
-	}
-
 }

@@ -4,10 +4,10 @@ import (
 	"context"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.uber.org/zap"
-	"sportshot/crawler/global"
 	"sportshot/crawler/operator"
 	"sportshot/utils/config"
 	"sportshot/utils/db"
+	"sportshot/utils/global"
 	"time"
 )
 

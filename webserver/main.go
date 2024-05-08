@@ -12,13 +12,13 @@ func main() {
 
 	// EventServer
 	initinal.InitEventServerConn()
-	zap.S().Info("eventserver initialized")
+	zap.S().Info("grpcserver initialized")
 
 	// Routers
 	Router := initinal.InitRouters()
 	zap.S().Info("router initialized")
 
-	// Run
+	// Start
 	err := Router.Run("localhost:8081")
 	if err != nil {
 		zap.S().Panicf("fail to start web server")

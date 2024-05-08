@@ -5,9 +5,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 	"net/http"
+	"sportshot/utils/global"
 	"sportshot/utils/models/event"
 	pb "sportshot/utils/proto"
-	"sportshot/webserver/global"
 )
 
 func GetEvents(ctx *gin.Context) {
