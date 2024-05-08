@@ -87,6 +87,7 @@ func main() {
 	// initial config
 	config.InitConfigByViper()
 	uri := db.GetMongodbURI()
+	zap.S().Infof("viper(config system) initialized")
 
 	// initial MongodbClient
 	global.MongodbClient = db.GetMongodbClient(uri)
