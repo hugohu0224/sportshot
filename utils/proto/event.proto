@@ -29,5 +29,6 @@ message EventInfo {
 
 message EventsReply {
   repeated EventInfo events = 1;
-  int32 count = 2;
+  string message = 2;
+  int32 status = 3;
 }
