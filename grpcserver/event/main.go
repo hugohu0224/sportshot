@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/spf13/viper"
 	clientv3 "go.etcd.io/etcd/client/v3"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.uber.org/zap"
@@ -55,7 +56,7 @@ func main() {
 
 	// creating an etcd client
 	cli, err := clientv3.New(clientv3.Config{
-		Endpoints:   []string{"172.24.0.194:2379"},
+		Endpoints:   []string{fmt.Sprintf("%s:%s", viper.GetString("etcd.host"), viper.GetString("etcd.port"))},
 		DialTimeout: 5 * time.Second,
 	})
 	if err != nil {

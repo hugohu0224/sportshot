@@ -18,10 +18,6 @@ func (s *EventServer) SearchEvents(ctx context.Context, req *pb.SearchEventsRequ
 	// initial filter
 	filter := bson.D{}
 
-	// default filter
-	yesterday := time.Now().AddDate(0, 0, -1).Format("2006-01-02")
-	filter = append(filter, bson.E{Key: "date", Value: bson.M{"$gte": yesterday}})
-
 	// condition filter
 	if req.LeagueName != "" {
 		filter = append(filter, bson.E{Key: "leagueName", Value: req.LeagueName})
@@ -29,7 +25,11 @@ func (s *EventServer) SearchEvents(ctx context.Context, req *pb.SearchEventsRequ
 	if req.SportType != "" {
 		filter = append(filter, bson.E{Key: "sportType", Value: req.SportType})
 	}
-	if req.StartDate != "" {
+	if req.StartDate == "" {
+		// default filter
+		yesterday := time.Now().AddDate(0, 0, -1).Format("2006-01-02")
+		filter = append(filter, bson.E{Key: "date", Value: bson.M{"$gte": yesterday}})
+	} else {
 		filter = append(filter, bson.E{Key: "date", Value: bson.M{"$gte": req.StartDate}})
 	}
 	if req.EndDate != "" {
@@ -64,9 +64,8 @@ func (s *EventServer) SearchEvents(ctx context.Context, req *pb.SearchEventsRequ
 
 	// reorg reply
 	reply := &pb.EventsReply{
-		Events:  results,
-		Message: "query success",
-		Status:  200,
+		Events: results,
+		Count:  int32(len(results)),
 	}
 
 	return reply, nil
