@@ -1,3 +1,4 @@
+# rename to config.yaml to activate
 mongodb:
   user: admin
   password: password

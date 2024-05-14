@@ -3,20 +3,22 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/spf13/viper"
 	clientv3 "go.etcd.io/etcd/client/v3"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
-	"log"
 	"net"
 	"sportshot/grpcserver/event/service"
-	"sportshot/utils/config"
 	"sportshot/utils/db"
 	"sportshot/utils/global"
 	pb "sportshot/utils/proto"
 	"sportshot/utils/tools"
-	"time"
+)
+
+// local config consider to move to viper
+const (
+	serviceName = "/event"
+	servicePort = "50051"
 )
 
 func main() {
@@ -28,7 +30,7 @@ func main() {
 	zap.ReplaceGlobals(logger)
 
 	// initial config
-	config.InitConfigByViper()
+	db.InitConfigByViper()
 	uri := db.GetMongodbURI()
 	zap.S().Infof("viper(config system) initialized")
 
@@ -43,38 +45,37 @@ func main() {
 	zap.S().Infof("mongoClient initialized")
 
 	// initial server
-	lis, err := net.Listen("tcp", ":50051")
+	lis, err := net.Listen("tcp", fmt.Sprintf(":%s", servicePort))
 	if err != nil {
 		zap.S().Panicf(fmt.Sprintf("failed to listen: %v", err), zap.Error(err))
 	}
 
 	// getting IP that may change due to reboots
-	localIP, err := tools.GetLocalIP()
+	localHost, err := tools.GetLocalHost()
 	if err != nil {
-		log.Fatalf("failed to get local IP: %v", err)
+		zap.S().Panicf(fmt.Sprintf("failed to get local ip: %v", err), zap.Error(err))
 	}
 
-	// creating an etcd client
-	cli, err := clientv3.New(clientv3.Config{
-		Endpoints:   []string{fmt.Sprintf("%s:%s", viper.GetString("etcd.host"), viper.GetString("etcd.port"))},
-		DialTimeout: 5 * time.Second,
-	})
+	// getting etcd client
+	cli, err := db.GetEtcdClient()
 	if err != nil {
-		log.Fatalf("failed to connect to etcd: %v", err)
+		zap.S().Errorf("fail to GetEtcdClient : %v", err)
 	}
-	defer cli.Close()
+	defer func(cli *clientv3.Client) {
+		err := cli.Close()
+		if err != nil {
+			zap.S().Errorf("error closing etcd: %v", err)
+		}
+	}(cli)
 
 	// register the service to etcd
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	defer cancel()
-
-	serviceKey := "events/" + localIP + ":8080"
-	serviceValue := localIP
-	_, err = cli.Put(ctx, serviceKey, serviceValue)
+	serviceAddr := fmt.Sprintf("%s:%s", localHost, servicePort)
+	serviceKey := fmt.Sprintf("%s/%s", serviceName, "server1")
+	err = db.RegisterToEtcd(cli, serviceKey, serviceAddr)
 	if err != nil {
-		log.Fatalf("failed to set etcd key: %v", err)
+		zap.S().Fatalf("failed to register to etcd: %v", err)
 	}
-	zap.S().Infof("server registered to etcd by KEY: %s VALUE: %s", serviceKey, serviceValue)
+	zap.S().Infof("server registered to etcd by KEY: %s VALUE: %s", serviceKey, serviceAddr)
 
 	// start to serve
 	s := grpc.NewServer()

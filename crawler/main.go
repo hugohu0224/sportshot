@@ -5,7 +5,6 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.uber.org/zap"
 	"sportshot/crawler/operator"
-	"sportshot/utils/config"
 	"sportshot/utils/db"
 	"sportshot/utils/global"
 	"time"
@@ -22,7 +21,7 @@ func main() {
 	zap.S().Infof("BasketballCrawler initialized")
 
 	// initial config
-	config.InitConfigByViper()
+	db.InitConfigByViper()
 	uri := db.GetMongodbURI()
 	global.MongodbClient = db.GetMongodbClient(uri)
 	defer func(c *mongo.Client, ctx context.Context) {

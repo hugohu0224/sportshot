@@ -5,7 +5,7 @@ import (
 	"net"
 )
 
-func GetLocalIP() (string, error) {
+func GetLocalHost() (string, error) {
 	interfaces, err := net.Interfaces()
 	if err != nil {
 		return "", err
