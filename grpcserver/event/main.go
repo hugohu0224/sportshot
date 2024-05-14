@@ -34,12 +34,12 @@ func main() {
 
 	// initial MongodbClient
 	global.MongodbClient = db.GetMongodbClient(uri)
-	defer func(c *mongo.Client, ctx context.Context) {
+	defer func(ctx context.Context, c *mongo.Client) {
 		err := c.Disconnect(ctx)
 		if err != nil {
 			zap.S().Fatal("error disconnecting from mongodb:", err)
 		}
-	}(global.MongodbClient, context.TODO())
+	}(context.TODO(), global.MongodbClient)
 	zap.S().Infof("mongoClient initialized")
 
 	// initial server
@@ -60,7 +60,7 @@ func main() {
 		DialTimeout: 5 * time.Second,
 	})
 	if err != nil {
-		log.Fatalf("Failed to connect to etcd: %v", err)
+		log.Fatalf("failed to connect to etcd: %v", err)
 	}
 	defer cli.Close()
 
@@ -68,13 +68,13 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	serviceKey := "myservice/" + localIP + ":8080" // 服务的键，这里包括IP和端口
+	serviceKey := "events/" + localIP + ":8080"
 	serviceValue := localIP
 	_, err = cli.Put(ctx, serviceKey, serviceValue)
 	if err != nil {
-		log.Fatalf("Failed to set etcd key: %v", err)
+		log.Fatalf("failed to set etcd key: %v", err)
 	}
-	log.Printf("Service registered with IP: %s", localIP)
+	zap.S().Infof("server registered to etcd by KEY: %s VALUE: %s", serviceKey, serviceValue)
 
 	// start to serve
 	s := grpc.NewServer()

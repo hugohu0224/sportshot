@@ -4,6 +4,9 @@ import (
 	"context"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
+	"log"
 	"net/http"
 	"sportshot/utils/global"
 	"sportshot/utils/models/event"
@@ -18,12 +21,21 @@ func GetEvents(ctx *gin.Context) {
 		return
 	}
 
+	// get eventserver ip from etcd
+	// dial and close
+
+	conn, err := grpc.Dial("localhost:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	if err != nil {
+		log.Fatalf("fail to connect to EventServer: %v", err)
+	}
+
 	res, err := global.EventServerClient.SearchEvents(context.Background(), &pb.SearchEventsRequest{
 		LeagueName: f.LeagueName,
 		SportType:  f.SportType,
 		StartDate:  f.StartDate,
 		EndDate:    f.EndDate,
 	})
+
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),

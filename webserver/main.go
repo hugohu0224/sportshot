@@ -10,10 +10,6 @@ func main() {
 	initinal.InitLogger()
 	zap.S().Info("logger initialized")
 
-	// EventServer
-	initinal.InitEventServerConn()
-	zap.S().Info("grpcserver initialized")
-
 	// Routers
 	Router := initinal.InitRouters()
 	zap.S().Info("router initialized")
