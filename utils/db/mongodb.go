@@ -9,7 +9,8 @@ import (
 	"go.uber.org/zap"
 )
 
-func GetMongodbClient(uri string) *mongo.Client {
+func GetMongodbClient() *mongo.Client {
+	uri := getMongodbURI()
 	zap.S().Infof("connecting to MongoDB at %s", uri)
 	clientOptions := options.Client().ApplyURI(uri).
 		SetMaxPoolSize(20).
@@ -19,6 +20,7 @@ func GetMongodbClient(uri string) *mongo.Client {
 	if err != nil {
 		zap.S().Fatalf("failed to connect to MongoDB : %v", err)
 	}
+
 	// test connection
 	err = client.Ping(context.TODO(), nil)
 	if err != nil {
@@ -27,7 +29,7 @@ func GetMongodbClient(uri string) *mongo.Client {
 	return client
 }
 
-func GetMongodbURI() string {
+func getMongodbURI() string {
 	user := viper.GetString("mongodb.user")
 	password := viper.GetString("mongodb.password")
 	host := viper.GetString("mongodb.host")
