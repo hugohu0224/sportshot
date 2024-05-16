@@ -62,6 +62,7 @@ func GetEvents(ctx *gin.Context) {
 		return
 	}
 
+	// response
 	ctx.JSON(200, gin.H{
 		"data": res,
 		"code": 200,
