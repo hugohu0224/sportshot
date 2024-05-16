@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"github.com/gocolly/colly/v2"
 	"go.uber.org/zap"
-	"sportshot/utils/global"
-	"sportshot/utils/models/event"
+	"sportshot/pkg/utils/global"
+	"sportshot/pkg/utils/models/event"
 	"strings"
 	"time"
 )

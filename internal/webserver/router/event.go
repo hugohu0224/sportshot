@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"sportshot/webserver/api"
+	"sportshot/internal/webserver/api"
 )
 
 func InitEventRouter(router *gin.RouterGroup) {

@@ -3,9 +3,9 @@ package main
 import (
 	"context"
 	"go.uber.org/zap"
-	"sportshot/crawler/operator"
-	"sportshot/utils/db"
-	"sportshot/utils/global"
+	"sportshot/internal/crawler/operator"
+	db2 "sportshot/pkg/utils/db"
+	"sportshot/pkg/utils/global"
 	"time"
 )
 
@@ -20,10 +20,10 @@ func main() {
 	zap.S().Infof("BasketballCrawler initialized")
 
 	// config
-	db.InitConfigByViper()
+	db2.InitConfigByViper()
 
 	// mongodb
-	global.MongodbClient = db.GetMongodbClient()
+	global.MongodbClient = db2.GetMongodbClient()
 	defer global.MongodbClient.Disconnect(context.TODO())
 	zap.S().Infof("mongoClient initialized")
 

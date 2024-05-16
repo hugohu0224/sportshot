@@ -7,7 +7,6 @@ import (
 	clientv3 "go.etcd.io/etcd/client/v3"
 	"go.etcd.io/etcd/client/v3/naming/endpoints"
 	"go.uber.org/zap"
-	"sportshot/utils/global"
 )
 
 func GetEtcdClient() *clientv3.Client {
@@ -24,7 +23,7 @@ func RegisterServiceToEtcd(cli *clientv3.Client, serverName string, serverHost s
 	serverValue := fmt.Sprintf("%s:%s", serverHost, serverPort)
 	serverKey := fmt.Sprintf("%s/%s", serverName, serverValue)
 
-	em, err := endpoints.NewManager(global.EtcdClient, fmt.Sprintf("%s", serverName))
+	em, err := endpoints.NewManager(cli, fmt.Sprintf("%s", serverName))
 	if err != nil {
 		zap.S().Panicf(fmt.Sprintf("failed to create endpoint manager: %v", err), zap.Error(err))
 	}

@@ -6,11 +6,11 @@ import (
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"net"
-	"sportshot/grpcserver/event/service"
-	"sportshot/utils/db"
-	"sportshot/utils/global"
-	pb "sportshot/utils/proto"
-	"sportshot/utils/tools"
+	"sportshot/internal/grpcserver/event/service"
+	db2 "sportshot/pkg/utils/db"
+	"sportshot/pkg/utils/global"
+	pb "sportshot/pkg/utils/proto"
+	"sportshot/pkg/utils/tools"
 )
 
 // local config consider to move to viper
@@ -26,21 +26,21 @@ func main() {
 	zap.ReplaceGlobals(logger)
 
 	// config
-	db.InitConfigByViper()
+	db2.InitConfigByViper()
 	zap.S().Infof("viper initialized")
 
 	// mongodb
-	global.MongodbClient = db.GetMongodbClient()
+	global.MongodbClient = db2.GetMongodbClient()
 	defer global.MongodbClient.Disconnect(context.TODO())
 	zap.S().Infof("mongoClient initialized")
 
 	// etcd
-	global.EtcdClient = db.GetEtcdClient()
+	global.EtcdClient = db2.GetEtcdClient()
 	defer global.EtcdClient.Close()
 	zap.S().Info("etcd client initialized")
 
 	// register
-	err = db.RegisterServiceToEtcd(global.EtcdClient, serverName, serverHost, serverPort)
+	err = db2.RegisterServiceToEtcd(global.EtcdClient, serverName, serverHost, serverPort)
 	if err != nil {
 		zap.S().Fatalf("register service to etcd failed: %v", err)
 	}

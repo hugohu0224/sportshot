@@ -8,9 +8,9 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"net/http"
-	"sportshot/utils/global"
-	"sportshot/utils/models/event"
-	pb "sportshot/utils/proto"
+	"sportshot/pkg/utils/global"
+	"sportshot/pkg/utils/models/event"
+	"sportshot/pkg/utils/proto"
 )
 
 // UnaryInterceptor middleware for checking the target
@@ -28,6 +28,16 @@ func UnaryInterceptor(
 
 func GetEvents(ctx *gin.Context) {
 	var f event.SearchEventsForm
+	// empty query params
+	if len(ctx.Request.URL.Query()) == 0 {
+		ctx.JSON(200, gin.H{
+			"message": "Empty query params.",
+			"code":    200,
+		})
+		return
+	}
+
+	// validate params
 	if err := ctx.ShouldBindQuery(&f); err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		zap.S().Errorf("GetEvents err: %v", err)
@@ -46,8 +56,8 @@ func GetEvents(ctx *gin.Context) {
 	)
 
 	// start to search
-	c := pb.NewEventServiceClient(conn)
-	res, err := c.SearchEvents(context.Background(), &pb.SearchEventsRequest{
+	c := proto.NewEventServiceClient(conn)
+	res, err := c.SearchEvents(context.Background(), &proto.SearchEventsRequest{
 		LeagueName: f.LeagueName,
 		SportType:  f.SportType,
 		StartDate:  f.StartDate,

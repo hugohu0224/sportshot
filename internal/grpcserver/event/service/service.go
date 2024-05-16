@@ -5,16 +5,16 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.uber.org/zap"
-	"sportshot/utils/global"
-	pb "sportshot/utils/proto"
+	"sportshot/pkg/utils/global"
+	"sportshot/pkg/utils/proto"
 	"time"
 )
 
 type EventServer struct {
-	pb.UnimplementedEventServiceServer
+	proto.UnimplementedEventServiceServer
 }
 
-func (s *EventServer) SearchEvents(ctx context.Context, req *pb.SearchEventsRequest) (*pb.EventsReply, error) {
+func (s *EventServer) SearchEvents(ctx context.Context, req *proto.SearchEventsRequest) (*proto.EventsReply, error) {
 	// initial filter
 	filter := bson.D{}
 
@@ -57,13 +57,13 @@ func (s *EventServer) SearchEvents(ctx context.Context, req *pb.SearchEventsRequ
 	}(cursor, context.TODO())
 
 	// processing data
-	var results []*pb.EventInfo
+	var results []*proto.EventInfo
 	if err = cursor.All(context.TODO(), &results); err != nil {
 		return nil, err
 	}
 
 	// reorg reply
-	reply := &pb.EventsReply{
+	reply := &proto.EventsReply{
 		Events: results,
 		Count:  int32(len(results)),
 	}
