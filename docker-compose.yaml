@@ -21,7 +21,7 @@ services:
       - --name
       - myetcdnode
       - --data-dir
-      - /etcd-data
+      - /etcd_data
       - --advertise-client-urls
       - http://0.0.0.0:2379
       - --listen-client-urls
@@ -41,16 +41,42 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      target: crawler
-    ports:
-      - "50051:50051"
+      args:
+        - SERVER=crawler
     environment:
-      - HOST_IP=${HOST_IP}
-      - PORT=50051
+      - SERVER=crawler
+    container_name: webcrawler
+
+  eventserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - SERVER=eventserver
+    environment:
+      - SERVER=eventserver
+    container_name:
+      eventserver
     depends_on:
       - etcd
 
+  webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - SERVER=webserver
+    environment:
+      - SERVER=webserver
+    ports:
+      - "8080:8080"
+    container_name: webserver
+    depends_on:
+      - eventserver
+
 volumes:
   mongodb_data:
-  etcd-data:
+  etcd_data:
   redis_data:
+
+

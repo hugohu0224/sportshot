@@ -26,7 +26,7 @@ func main() {
 	zap.S().Info("etcd client initialized")
 
 	// start
-	err := Router.Run("localhost:8081")
+	err := Router.Run("0.0.0.0:8080")
 	if err != nil {
 		zap.S().Panicf("fail to start web server")
 	}
