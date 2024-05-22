@@ -10,7 +10,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: password
     volumes:
-      - mongodb_data:/data/mongodb
+      - mongodb_data:/data/db
 
   etcd:
     image: quay.io/coreos/etcd:v3.5.0
@@ -30,13 +30,6 @@ services:
       - "2379:2379"
       - "2380:2380"
 
-  redis:
-    image: redis:latest
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-
   crawler:
     build:
       context: .
@@ -46,8 +39,11 @@ services:
     environment:
       - SERVER=crawler
     container_name: webcrawler
+    volumes:
+      - ./config.yaml:/app/config.yaml
 
   eventserver:
+    network_mode: "host"
     build:
       context: .
       dockerfile: Dockerfile
@@ -58,6 +54,8 @@ services:
     container_name: eventserver
     depends_on:
       - etcd
+    volumes:
+      - ./config.yaml:/app/config.yaml
 
   webserver:
     build:
@@ -72,6 +70,8 @@ services:
     container_name: webserver
     depends_on:
       - eventserver
+    volumes:
+      - ./config.yaml:/app/config.yaml
 
 volumes:
   mongodb_data:

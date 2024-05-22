@@ -25,7 +25,7 @@ func main() {
 	// mongodb
 	global.MongodbClient = db2.GetMongodbClient()
 	defer global.MongodbClient.Disconnect(context.TODO())
-	zap.S().Infof("mongoClient initialized")
+	zap.S().Infof("MongoClient initialized")
 
 	// crawl
 	for {
