@@ -36,5 +36,6 @@ func getMongodbURI() string {
 	//uri := fmt.Sprintf("mongodb://%s:%s@%s:%s", user, password, host, port)
 
 	uri := os.Getenv("MONGODB_CONN")
+	zap.S().Infof("connecting to MongoDB at %s", uri)
 	return uri
 }

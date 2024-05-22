@@ -12,6 +12,8 @@ import (
 func GetEtcdClient() *clientv3.Client {
 	//etcdURL := fmt.Sprintf("%s:%d", viper.GetString("etcd.host"), viper.GetInt("etcd.port"))
 	etcdURL := os.Getenv("ETCD_CONN")
+	zap.S().Infof("connecting to etcd at %s", etcdURL)
+	
 	cli, err := clientv3.NewFromURL(etcdURL)
 	if err != nil {
 		zap.S().Fatalf("failed to connect to etcd: %v", err)
