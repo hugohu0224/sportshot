@@ -1,7 +1,15 @@
 version: '3.8'
 
+x-common: &common-settings
+  volumes:
+    - ./config.yaml:/app/config.yaml
+  environment:
+    MONGODB_CONN: mongodb://admin:password@mongodb:27017
+    ETCD_CONN: http://etcd:2379
+
 services:
   mongodb:
+    <<: *common-settings
     image: mongo:latest
     container_name: mongodb
     ports:
@@ -13,6 +21,7 @@ services:
       - mongodb_data:/data/db
 
   etcd:
+    <<: *common-settings
     image: quay.io/coreos/etcd:v3.5.0
     volumes:
       - etcd_data:/etcd_data
@@ -31,6 +40,7 @@ services:
       - "2380:2380"
 
   crawler:
+    <<: *common-settings
     build:
       context: .
       dockerfile: Dockerfile
@@ -43,6 +53,7 @@ services:
       - ./config.yaml:/app/config.yaml
 
   eventserver:
+    <<: *common-settings
     network_mode: "host"
     build:
       context: .

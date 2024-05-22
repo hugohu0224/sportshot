@@ -1,0 +1,9 @@
+#mongodb:
+#  user: admin
+#  password: password
+#  host: localhost
+#  port: 27017
+#
+#etcd:
+#  host: localhost
+#  port: 2379
