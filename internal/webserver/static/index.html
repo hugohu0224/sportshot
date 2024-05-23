@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Search</title>
+</head>
+<body>
+<h1>Search for Sport Events</h1>
+<form id="searchForm">
+    <label for="leagueName">League Name:</label>
+    <input type="text" id="leagueName" name="leagueName"><br><br>
+    <label for="sportType">Sport Type:</label>
+    <input type="text" id="sportType" name="sportType"><br><br>
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate"><br><br>
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate"><br><br>
+    <button type="button" onclick="searchEvents()">Search</button>
+</form>
+
+<div id="results"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
