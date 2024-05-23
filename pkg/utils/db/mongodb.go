@@ -11,6 +11,7 @@ import (
 func GetMongodbClient() *mongo.Client {
 	uri := getMongodbURI()
 	zap.S().Infof("connecting to MongoDB at %s", uri)
+
 	clientOptions := options.Client().ApplyURI(uri).
 		SetMaxPoolSize(20).
 		SetMinPoolSize(5).
@@ -29,13 +30,6 @@ func GetMongodbClient() *mongo.Client {
 }
 
 func getMongodbURI() string {
-	//user := viper.GetString("mongodb.user")
-	//password := viper.GetString("mongodb.password")
-	//host := viper.GetString("mongodb.host")
-	//port := viper.GetString("mongodb.port")
-	//uri := fmt.Sprintf("mongodb://%s:%s@%s:%s", user, password, host, port)
-
 	uri := os.Getenv("MONGODB_CONN")
-	zap.S().Infof("connecting to MongoDB at %s", uri)
 	return uri
 }

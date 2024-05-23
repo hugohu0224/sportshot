@@ -7,7 +7,7 @@ import (
 	"google.golang.org/grpc"
 	"net"
 	"sportshot/internal/grpcserver/event/service"
-	db2 "sportshot/pkg/utils/db"
+	"sportshot/pkg/utils/db"
 	"sportshot/pkg/utils/global"
 	pb "sportshot/pkg/utils/proto"
 	"sportshot/pkg/utils/tools"
@@ -26,21 +26,21 @@ func main() {
 	zap.ReplaceGlobals(logger)
 
 	// config
-	db2.InitConfigByViper()
+	db.InitConfigByViper()
 	zap.S().Infof("viper initialized")
 
 	// mongodb
-	global.MongodbClient = db2.GetMongodbClient()
+	global.MongodbClient = db.GetMongodbClient()
 	defer global.MongodbClient.Disconnect(context.TODO())
 	zap.S().Infof("mongoClient initialized")
 
 	// etcd
-	global.EtcdClient = db2.GetEtcdClient()
+	global.EtcdClient = db.GetEtcdClient()
 	defer global.EtcdClient.Close()
 	zap.S().Info("etcd client initialized")
 
 	// register
-	err = db2.RegisterServiceToEtcd(global.EtcdClient, serverName, serverHost, serverPort)
+	err = db.RegisterServiceToEtcd(global.EtcdClient, serverName, serverHost, serverPort)
 	if err != nil {
 		zap.S().Fatalf("register service to etcd failed: %v", err)
 	}

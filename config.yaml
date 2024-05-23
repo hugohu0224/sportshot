@@ -1,3 +1,6 @@
+### Originally, it was used to set the parameters of the database link,
+### but it has been integrated into docker-compose, so it is empty for now.
+
 #mongodb:
 #  user: admin
 #  password: password
