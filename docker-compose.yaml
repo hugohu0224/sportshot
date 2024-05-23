@@ -1,5 +1,12 @@
 version: '3.8'
 
+x-common:
+  &common
+  environment:
+    &common-env
+    MONGODB_CONN: mongodb://admin:password@mongodb:27017
+    ETCD_CONN: http://etcd:2379
+
 services:
   mongodb:
     image: mongo:latest
@@ -7,6 +14,7 @@ services:
     ports:
       - "27017:27017"
     environment:
+      <<: *common-env
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: password
     volumes:
@@ -35,22 +43,24 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-      - SERVER=crawler
+        SERVER: crawler
     environment:
-      - SERVER=crawler
+        <<: *common-env
+        SERVER: crawler
     container_name: webcrawler
     volumes:
       - ./config.yaml:/app/config.yaml
 
   eventserver:
-    network_mode: "host"
+#    network_mode: "host"
     build:
       context: .
       dockerfile: Dockerfile
       args:
-      - SERVER=eventserver
+        SERVER: eventserver
     environment:
-      - SERVER=eventserver
+      <<: *common-env
+      SERVER: eventserver
     container_name: eventserver
     depends_on:
       - etcd
@@ -62,9 +72,10 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-      - SERVER=webserver
+        SERVER: webserver
     environment:
-      - SERVER=webserver
+        <<: *common-env
+        SERVER: webserver
     ports:
       - "8080:8080"
     container_name: webserver
@@ -77,3 +88,5 @@ volumes:
   mongodb_data:
   etcd_data:
   redis_data:
+
+

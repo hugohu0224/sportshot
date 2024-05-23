@@ -2,16 +2,16 @@ package db
 
 import (
 	"context"
-	"fmt"
-	"github.com/spf13/viper"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.uber.org/zap"
+	"os"
 )
 
 func GetMongodbClient() *mongo.Client {
 	uri := getMongodbURI()
 	zap.S().Infof("connecting to MongoDB at %s", uri)
+
 	clientOptions := options.Client().ApplyURI(uri).
 		SetMaxPoolSize(20).
 		SetMinPoolSize(5).
@@ -30,10 +30,6 @@ func GetMongodbClient() *mongo.Client {
 }
 
 func getMongodbURI() string {
-	user := viper.GetString("mongodb.user")
-	password := viper.GetString("mongodb.password")
-	host := viper.GetString("mongodb.host")
-	port := viper.GetString("mongodb.port")
-	uri := fmt.Sprintf("mongodb://%s:%s@%s:%s", user, password, host, port)
+	uri := os.Getenv("MONGODB_CONN")
 	return uri
 }

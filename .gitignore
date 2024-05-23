@@ -21,6 +21,5 @@
 go.work
 
 # custom
-config.yaml
 .dev
 .idea

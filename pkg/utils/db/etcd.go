@@ -3,14 +3,16 @@ package db
 import (
 	"context"
 	"fmt"
-	"github.com/spf13/viper"
 	clientv3 "go.etcd.io/etcd/client/v3"
 	"go.etcd.io/etcd/client/v3/naming/endpoints"
 	"go.uber.org/zap"
+	"os"
 )
 
 func GetEtcdClient() *clientv3.Client {
-	etcdURL := fmt.Sprintf("%s:%d", viper.GetString("etcd.host"), viper.GetInt("etcd.port"))
+	etcdURL := os.Getenv("ETCD_CONN")
+	zap.S().Infof("connecting to etcd at %s", etcdURL)
+
 	cli, err := clientv3.NewFromURL(etcdURL)
 	if err != nil {
 		zap.S().Fatalf("failed to connect to etcd: %v", err)
