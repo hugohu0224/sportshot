@@ -22,11 +22,17 @@ func (s *EventServer) SearchEvents(ctx context.Context, req *proto.SearchEventsR
 	if req.LeagueName != "" {
 		filter = append(filter, bson.E{Key: "leagueName", Value: req.LeagueName})
 	}
+	if req.HomeName != "" {
+		filter = append(filter, bson.E{Key: "homeName", Value: req.HomeName})
+	}
+	if req.AwayName != "" {
+		filter = append(filter, bson.E{Key: "awayName", Value: req.AwayName})
+	}
 	if req.SportType != "" {
 		filter = append(filter, bson.E{Key: "sportType", Value: req.SportType})
 	}
 	if req.StartDate == "" {
-		// default filter
+		// default filter for Date
 		yesterday := time.Now().AddDate(0, 0, -1).Format("2006-01-02")
 		filter = append(filter, bson.E{Key: "date", Value: bson.M{"$gte": yesterday}})
 	} else {
@@ -35,6 +41,8 @@ func (s *EventServer) SearchEvents(ctx context.Context, req *proto.SearchEventsR
 	if req.EndDate != "" {
 		filter = append(filter, bson.E{Key: "date", Value: bson.M{"$lte": req.EndDate}})
 	}
+
+	zap.S().Infof("search filter: %v", filter)
 
 	// connect to mongodb
 	databaseName := "sportevents"

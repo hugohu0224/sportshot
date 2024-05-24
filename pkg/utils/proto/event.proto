@@ -10,9 +10,11 @@ service EventService {
 
 message SearchEventsRequest {
   string LeagueName = 1;
-  string SportType = 2;
-  string StartDate = 3;
-  string EndDate = 4;
+  string HomeName = 2;
+  string AwayName = 3;
+  string SportType = 4;
+  string StartDate = 5;
+  string EndDate = 6;
 }
 
 message EventInfo {

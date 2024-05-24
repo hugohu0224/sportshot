@@ -29,11 +29,13 @@ func RegisterServiceToEtcd(cli *clientv3.Client, serverName string, serverHost s
 	if err != nil {
 		zap.S().Panicf(fmt.Sprintf("failed to create endpoint manager: %v", err), zap.Error(err))
 	}
+
 	err = em.AddEndpoint(context.TODO(), serverKey, endpoints.Endpoint{Addr: serverValue})
 	if err != nil {
 		zap.S().Fatalf("failed to register to etcd: %v", err)
 		return err
 	}
+
 	zap.S().Infof("server registered to etcd by KEY: %s", serverKey)
 
 	return nil

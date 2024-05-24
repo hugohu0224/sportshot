@@ -11,12 +11,16 @@ function formatDate(timestamp) {
 
 function searchEvents() {
     const leagueName = document.getElementById('leagueName').value;
+    const homeName = document.getElementById('homeName').value;
+    const awayName = document.getElementById('awayName').value;
     const sportType = document.getElementById('sportType').value;
     const startDate = document.getElementById('startDate').value;
     const endDate = document.getElementById('endDate').value;
 
     const queryParams = new URLSearchParams({
         leagueName: leagueName,
+        homeName: homeName,
+        awayName: awayName,
         sportType: sportType,
         startDate: startDate,
         endDate: endDate
@@ -30,7 +34,7 @@ function searchEvents() {
             tableBody.innerHTML = '';
 
             events.forEach(event => {
-                let formattedTimestamp = formatDate(event.timestamp); // 格式化时间戳
+                let formattedTimestamp = formatDate(event.timestamp);
                 let row = `<tr>
                     <td>${event.leagueName}</td>
                     <td>${event.date}</td>
@@ -48,7 +52,7 @@ function searchEvents() {
         .catch(error => console.error('Error:', error));
 }
 
-document.getElementById('searchForm').addEventListener('submit', function(event) {
+document.getElementById('searchForm').addEventListener('submit', function (event) {
     event.preventDefault();
     searchEvents();
 });

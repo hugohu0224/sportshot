@@ -49,16 +49,19 @@ func GetEvents(ctx *gin.Context) {
 
 	// dial
 	conn, err := grpc.Dial("etcd:///event",
+		//conn, err := grpc.Dial("172.28.11.225:50051",
 		grpc.WithResolvers(etcdResolver),
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
-		grpc.WithUnaryInterceptor(UnaryInterceptor),
-		grpc.WithDefaultServiceConfig(`{"loadBalancingPolicy":"round_robin"}`),
+		//grpc.WithUnaryInterceptor(UnaryInterceptor),
+		//grpc.WithDefaultServiceConfig(`{"loadBalancingPolicy":"round_robin"}`),
 	)
 
 	// start to search
 	c := proto.NewEventServiceClient(conn)
 	res, err := c.SearchEvents(context.Background(), &proto.SearchEventsRequest{
 		LeagueName: f.LeagueName,
+		HomeName:   f.HomeName,
+		AwayName:   f.AwayName,
 		SportType:  f.SportType,
 		StartDate:  f.StartDate,
 		EndDate:    f.EndDate,
