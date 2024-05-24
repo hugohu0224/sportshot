@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Search</title>
+    <title>Search and Display Events</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-<h1>Search for Sport Events</h1>
+<h1>Search for Events</h1>
 <form id="searchForm">
     <label for="leagueName">League Name:</label>
     <input type="text" id="leagueName" name="leagueName"><br><br>
@@ -19,7 +28,25 @@
     <button type="button" onclick="searchEvents()">Search</button>
 </form>
 
-<div id="results"></div>
+<h2>Event Results</h2>
+<table id="eventTable">
+    <thead>
+    <tr>
+        <th data-type="string" data-name="leagueName">League Name</th>
+        <th data-type="date" data-name="date">Date</th>
+        <th data-type="timestamp" data-name="timestamp">Timestamp</th>
+        <th data-type="time" data-name="raceTime">Race Time</th>
+        <th data-type="string" data-name="homeName">Home Team</th>
+        <th data-type="string" data-name="awayName">Away Team</th>
+        <th data-type="string" data-name="score">Score</th>
+        <th data-type="number" data-name="homeOdds">Home Odds</th>
+        <th data-type="number" data-name="awayOdds">Away Odds</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Data rows will be inserted here -->
+    </tbody>
+</table>
 
 <script src="app.js"></script>
 </body>
