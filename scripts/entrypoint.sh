@@ -1,9 +1,9 @@
 #!/bin/sh
 
 case "$SERVER" in
-  crawler)
+  webcrawler)
     echo "Starting crawler service..."
-    exec ./crawler
+    exec ./webcrawler
     ;;
   eventserver)
     echo "Starting gRPC server service..."

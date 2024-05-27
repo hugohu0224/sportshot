@@ -13,7 +13,7 @@ import (
 	"sportshot/pkg/utils/proto"
 )
 
-// UnaryInterceptor middleware for checking the target
+// UnaryInterceptor checking the target
 func UnaryInterceptor(
 	ctx context.Context,
 	method string,
@@ -49,11 +49,10 @@ func GetEvents(ctx *gin.Context) {
 
 	// dial
 	conn, err := grpc.Dial("etcd:///event",
-		//conn, err := grpc.Dial("172.28.11.225:50051",
 		grpc.WithResolvers(etcdResolver),
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
-		//grpc.WithUnaryInterceptor(UnaryInterceptor),
-		//grpc.WithDefaultServiceConfig(`{"loadBalancingPolicy":"round_robin"}`),
+		grpc.WithUnaryInterceptor(UnaryInterceptor),
+		grpc.WithDefaultServiceConfig(`{"loadBalancingPolicy":"round_robin"}`),
 	)
 
 	// start to search

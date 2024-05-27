@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	clientv3 "go.etcd.io/etcd/client/v3"
-	"go.etcd.io/etcd/client/v3/naming/endpoints"
 	"go.uber.org/zap"
 	"os"
 )
@@ -22,21 +21,45 @@ func GetEtcdClient() *clientv3.Client {
 }
 
 func RegisterServiceToEtcd(cli *clientv3.Client, serverName string, serverHost string, serverPort string) error {
-	serverValue := fmt.Sprintf("%s:%s", serverHost, serverPort)
-	serverKey := fmt.Sprintf("%s/%s", serverName, serverValue)
-
-	em, err := endpoints.NewManager(cli, fmt.Sprintf("%s", serverName))
+	// lease
+	lease, err := cli.Grant(context.TODO(), 10)
 	if err != nil {
-		zap.S().Panicf(fmt.Sprintf("failed to create endpoint manager: %v", err), zap.Error(err))
-	}
-
-	err = em.AddEndpoint(context.TODO(), serverKey, endpoints.Endpoint{Addr: serverValue})
-	if err != nil {
-		zap.S().Fatalf("failed to register to etcd: %v", err)
+		zap.S().Fatalf("failed to create lease: %v", err)
 		return err
 	}
 
-	zap.S().Infof("server registered to etcd by KEY: %s", serverKey)
+	// settings
+	serverInfo := map[string]string{
+		"key":   fmt.Sprintf("%s/%s:%s", serverName, serverHost, serverPort),
+		"value": fmt.Sprintf("{\"Addr\":\"%s:%s\", \"LeaseId\":\"%d\"}", serverHost, serverPort, lease.ID),
+	}
+
+	// register
+	_, err = cli.Put(context.TODO(), serverInfo["key"], serverInfo["value"], clientv3.WithLease(lease.ID))
+	if err != nil {
+		zap.S().Errorf("Failed to register to etcd with lease: %v", err)
+		return err
+	}
+
+	// keep
+	ch, err := cli.KeepAlive(context.Background(), lease.ID)
+	if err != nil {
+		zap.S().Errorf("failed to keep lease alive: %v", err)
+		return err
+	}
+
+	// consume ch to avoid full message
+	go func() {
+		for ka := range ch {
+			if ka == nil {
+				zap.S().Info("keepalive channel closed")
+				return
+			}
+			// keepalive nothing to do
+		}
+	}()
+
+	zap.S().Infof("server registered to etcd by KEY: %s", serverInfo["value"])
 
 	return nil
 }
