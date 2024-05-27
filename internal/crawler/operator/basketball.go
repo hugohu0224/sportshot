@@ -22,14 +22,14 @@ func (cr *BasketballCrawler) Crawl() []event.SportEvent {
 	// created a channel to receive the result (blocking).
 	resultChan := make(chan []event.SportEvent, 1)
 
-	// crawl logic of main
+	// crawl logic
 	c.OnHTML("#tbl_inplay > tbody", func(e *colly.HTMLElement) {
 		currentTimestamp := time.Now().Unix()
 		var events []event.SportEvent
 		zap.S().Info("crawling basketball events ")
-		// // find the "tr" list (rows)
+		// find the "tr" (rows)
 		e.ForEach("tr", func(_ int, el *colly.HTMLElement) {
-			// Iterate over "td" in "tr" (events in row)
+			// "td" in "tr" (single row)
 			ev := event.SportEvent{}
 			columnIdx := 0
 			el.ForEach("td", func(index int, td *colly.HTMLElement) {
@@ -78,7 +78,7 @@ func (cr *BasketballCrawler) SaveToMongo(events []event.SportEvent) {
 	collectionName := "basketball"
 	collection := global.MongodbClient.Database(databaseName).Collection(collectionName)
 
-	// Convert SportEvent type to interface{} due to mongodb insertion requirements
+	// convert SportEvent type to interface{} due to mongodb insertion requirements
 	var docs []interface{}
 	for _, e := range events {
 		docs = append(docs, e)

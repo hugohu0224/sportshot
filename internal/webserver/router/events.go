@@ -6,8 +6,10 @@ import (
 )
 
 func InitEventRouter(router *gin.RouterGroup) {
-	Router := router.Group("event")
+	Router := router.Group("events")
+
 	{
 		Router.GET("/", api.GetEvents)
+		Router.Static("/search-events", "internal/webserver/static/index.html")
 	}
 }

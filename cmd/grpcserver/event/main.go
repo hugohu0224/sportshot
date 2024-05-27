@@ -15,7 +15,7 @@ import (
 
 // local config consider to move to viper
 var (
-	serverName    = "event"
+	serverName    = "events"
 	serverPort    = "50051"
 	serverHost, _ = tools.GetLocalHost()
 )

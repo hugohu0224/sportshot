@@ -7,7 +7,6 @@ import (
 	"go.uber.org/zap"
 	"sportshot/pkg/utils/global"
 	"sportshot/pkg/utils/proto"
-	"time"
 )
 
 type EventServer struct {
@@ -31,11 +30,20 @@ func (s *EventServer) SearchEvents(ctx context.Context, req *proto.SearchEventsR
 	if req.SportType != "" {
 		filter = append(filter, bson.E{Key: "sportType", Value: req.SportType})
 	}
-	if req.StartDate == "" {
-		// default filter for Date
-		yesterday := time.Now().AddDate(0, 0, -1).Format("2006-01-02")
-		filter = append(filter, bson.E{Key: "date", Value: bson.M{"$gte": yesterday}})
-	} else {
+
+	// default date to avoid select too much
+	// but for the convenience of testing, replaced this default temporary
+	//if req.StartDate == "" {
+	//	yesterday := time.Now().AddDate(0, 0, -1).Format("2006-01-02")
+	//	filter = append(filter, bson.E{Key: "date", Value: bson.M{"$gte": yesterday}})
+	//} else {
+	//	filter = append(filter, bson.E{Key: "date", Value: bson.M{"$gte": req.StartDate}})
+	//}
+	//if req.EndDate != "" {
+	//	filter = append(filter, bson.E{Key: "date", Value: bson.M{"$lte": req.EndDate}})
+	//}
+
+	if req.StartDate != "" {
 		filter = append(filter, bson.E{Key: "date", Value: bson.M{"$gte": req.StartDate}})
 	}
 	if req.EndDate != "" {

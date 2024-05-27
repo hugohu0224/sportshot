@@ -48,7 +48,7 @@ func GetEvents(ctx *gin.Context) {
 	etcdResolver, err := resolver.NewBuilder(global.EtcdClient)
 
 	// dial
-	conn, err := grpc.Dial("etcd:///event",
+	conn, err := grpc.Dial("etcd:///events",
 		grpc.WithResolvers(etcdResolver),
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
 		grpc.WithUnaryInterceptor(UnaryInterceptor),
