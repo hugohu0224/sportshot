@@ -47,7 +47,7 @@ services:
     environment:
         <<: *common-env
         SERVER: crawler
-    container_name: webcrawler
+    container_name: crawler
     volumes:
       - ./config.yaml:/app/config.yaml
 

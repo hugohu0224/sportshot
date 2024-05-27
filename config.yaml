@@ -1,12 +1,2 @@
-### Originally, it was used to set the parameters of the database link,
-### but it has been integrated into docker-compose, so it is empty for now.
-
-#mongodb:
-#  user: admin
-#  password: password
-#  host: localhost
-#  port: 27017
-#
-#etcd:
-#  host: localhost
-#  port: 2379
+# Viper needs to read this file, but has moved the old config to docker-compose.yaml,
+# so it's left blank for now.
