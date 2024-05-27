@@ -13,7 +13,7 @@ import (
 	"sportshot/pkg/utils/proto"
 )
 
-// UnaryInterceptor middleware for checking the target
+// UnaryInterceptor checking the target
 func UnaryInterceptor(
 	ctx context.Context,
 	method string,
@@ -59,6 +59,8 @@ func GetEvents(ctx *gin.Context) {
 	c := proto.NewEventServiceClient(conn)
 	res, err := c.SearchEvents(context.Background(), &proto.SearchEventsRequest{
 		LeagueName: f.LeagueName,
+		HomeName:   f.HomeName,
+		AwayName:   f.AwayName,
 		SportType:  f.SportType,
 		StartDate:  f.StartDate,
 		EndDate:    f.EndDate,

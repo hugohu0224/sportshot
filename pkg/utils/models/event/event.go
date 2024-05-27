@@ -14,6 +14,8 @@ type SportEvent struct {
 
 type SearchEventsForm struct {
 	LeagueName string `json:"leagueName" form:"leagueName"`
+	HomeName   string `json:"homeName" form:"homeName"`
+	AwayName   string `json:"awayName" form:"awayName"`
 	SportType  string `json:"sportType" form:"sportType"`
 	StartDate  string `json:"startDate" form:"startDate"`
 	EndDate    string `json:"endDate" form:"endDate"`
