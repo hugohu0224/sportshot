@@ -17,7 +17,7 @@ func InitRouters() *gin.Engine {
 		})
 	})
 
-	ApiGroup := r.Group("v1")
+	ApiGroup := r.Group("/v1")
 
 	router.InitEventRouter(ApiGroup)
 

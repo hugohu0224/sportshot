@@ -26,7 +26,7 @@ function searchEvents() {
         endDate: endDate
     }).toString();
 
-    fetch(`http://localhost:8080/v1/events/?${queryParams}`)
+    fetch(`http://localhost:8080/v1/events/query?${queryParams}`)
         .then(response => response.json())
         .then(data => {
             const events = data.data.events;
