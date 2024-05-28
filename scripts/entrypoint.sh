@@ -1,16 +1,16 @@
 #!/bin/sh
 
 case "$SERVER" in
-  webcrawler)
-    echo "Starting crawler service..."
-    exec ./webcrawler
+  crawler)
+    echo "Starting crawler..."
+    exec ./crawler
     ;;
   eventserver)
-    echo "Starting gRPC server service..."
+    echo "Starting eventserver..."
     exec ./eventserver
     ;;
   webserver)
-    echo "Starting webserver service..."
+    echo "Starting webserver..."
     exec ./webserver
     ;;
   *)

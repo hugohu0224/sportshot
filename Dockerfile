@@ -27,7 +27,9 @@ WORKDIR /app
 
 ARG SERVER
 COPY --from=builder /app/${SERVER} .
-COPY --from=builder /app/scripts/entrypoint.sh .
+
+# for webserver
+COPY internal/webserver/static/* internal/webserver/static
 
 COPY scripts/entrypoint.sh .
 RUN chmod +x entrypoint.sh
