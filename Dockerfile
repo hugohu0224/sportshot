@@ -29,7 +29,7 @@ ARG SERVER
 COPY --from=builder /app/${SERVER} .
 
 # for webserver
-COPY internal/webserver/static/* internal/webserver/static
+COPY internal/webserver/static/ internal/webserver/static/
 
 COPY scripts/entrypoint.sh .
 RUN chmod +x entrypoint.sh
