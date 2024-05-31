@@ -1,5 +1,5 @@
 # first stage
-FROM golang:1.21 as builder
+FROM golang:1.21-alpine as builder
 
 WORKDIR /app
 
@@ -21,7 +21,7 @@ RUN if [ "$SERVER" = "crawler" ]; then \
     fi
 
 # second stage
-FROM golang:1.21
+FROM golang:1.21-alpine
 
 WORKDIR /app
 
