@@ -8,7 +8,7 @@ RUN go mod download
 
 COPY . .
 
-# allow for independent implementation
+# allow for independent build
 ARG SERVER
 RUN if [ "$SERVER" = "crawler" ]; then \
       go build -o /app/crawler ./cmd/crawler; \
@@ -26,11 +26,16 @@ FROM golang:1.21
 WORKDIR /app
 
 ARG SERVER
+# get the compiled application
 COPY --from=builder /app/${SERVER} .
 
-# for webserver
+# get static for webserver needed
 COPY internal/webserver/static/ internal/webserver/static/
 
+# get Jason data for eventserver initial needed
+COPY pkg/files/sportevents.basketball.json pkg/files/sportevents.basketball.json
+
+# allow for independent run
 COPY scripts/entrypoint.sh .
 RUN chmod +x entrypoint.sh
 

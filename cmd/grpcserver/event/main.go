@@ -45,6 +45,12 @@ func main() {
 		zap.S().Fatalf("register service to etcd failed: %v", err)
 	}
 
+	// sometimes BetsAPI will ask users to log in during the peak period of the time,
+	// so the crawler can't crawl the data directly, in order to make the demo more convenient,
+	// so we initial the old data in the beginning
+	zap.S().Info("trying to init mongodb data")
+	db.InitOldDataForDemo("sportevents", "basketball", "./pkg/files/sportevents.basketball.json")
+
 	// start to serve
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%s", serverPort))
 	if err != nil {

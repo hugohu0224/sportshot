@@ -21,6 +21,7 @@ func main() {
 
 	// config
 	db.InitConfigByViper()
+	zap.S().Infof("config initialized")
 
 	// mongodb
 	global.MongodbClient = db.GetMongodbClient()

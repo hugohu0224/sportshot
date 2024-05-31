@@ -1,0 +1,1792 @@
+[{
+  "_id": {
+    "$oid": "6650354eabbbed604fef6d16"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532558
+},
+{
+  "_id": {
+    "$oid": "6650354eabbbed604fef6d17"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:30",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "15-16",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.476",
+  "awayOdds": "2.550",
+  "date": "2024-05-24",
+  "timestamp": 1716532558
+},
+{
+  "_id": {
+    "$oid": "6650354eabbbed604fef6d18"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:21",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "21-23",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "1.800",
+  "awayOdds": "1.869",
+  "date": "2024-05-24",
+  "timestamp": 1716532558
+},
+{
+  "_id": {
+    "$oid": "6650354eabbbed604fef6d19"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "4 - 00:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "68-72",
+  "awayName": "LA Lakers (RASCAL) Esports",
+  "homeOdds": "6.250",
+  "awayOdds": "1.105",
+  "date": "2024-05-24",
+  "timestamp": 1716532558
+},
+{
+  "_id": {
+    "$oid": "6650354eabbbed604fef6d1a"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 01:03",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532558
+},
+{
+  "_id": {
+    "$oid": "6650354eabbbed604fef6d1b"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:59",
+  "homeName": "瑪布亞Cardinals",
+  "score": "59-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "2.600",
+  "awayOdds": "1.454",
+  "date": "2024-05-24",
+  "timestamp": 1716532558
+},
+{
+  "_id": {
+    "$oid": "66503554abbbed604fef6d1c"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532564
+},
+{
+  "_id": {
+    "$oid": "66503554abbbed604fef6d1d"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:30",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "15-16",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.454",
+  "awayOdds": "2.600",
+  "date": "2024-05-24",
+  "timestamp": 1716532564
+},
+{
+  "_id": {
+    "$oid": "66503554abbbed604fef6d1e"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:14",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "23-23",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "1.666",
+  "awayOdds": "2.100",
+  "date": "2024-05-24",
+  "timestamp": 1716532564
+},
+{
+  "_id": {
+    "$oid": "66503554abbbed604fef6d1f"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "4 - 00:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "68-72",
+  "awayName": "LA Lakers (RASCAL) Esports",
+  "homeOdds": "6.250",
+  "awayOdds": "1.105",
+  "date": "2024-05-24",
+  "timestamp": 1716532564
+},
+{
+  "_id": {
+    "$oid": "66503554abbbed604fef6d20"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 01:03",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532564
+},
+{
+  "_id": {
+    "$oid": "66503554abbbed604fef6d21"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:47",
+  "homeName": "瑪布亞Cardinals",
+  "score": "59-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "2.200",
+  "awayOdds": "1.625",
+  "date": "2024-05-24",
+  "timestamp": 1716532564
+},
+{
+  "_id": {
+    "$oid": "66503559abbbed604fef6d22"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532569
+},
+{
+  "_id": {
+    "$oid": "66503559abbbed604fef6d23"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:30",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "15-16",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.476",
+  "awayOdds": "2.550",
+  "date": "2024-05-24",
+  "timestamp": 1716532569
+},
+{
+  "_id": {
+    "$oid": "66503559abbbed604fef6d24"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:06",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "23-23",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "1.666",
+  "awayOdds": "2.100",
+  "date": "2024-05-24",
+  "timestamp": 1716532569
+},
+{
+  "_id": {
+    "$oid": "66503559abbbed604fef6d25"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 00:54",
+  "homeName": "Naic Aces",
+  "score": "27-49",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532569
+},
+{
+  "_id": {
+    "$oid": "66503559abbbed604fef6d26"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:47",
+  "homeName": "瑪布亞Cardinals",
+  "score": "59-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "2.200",
+  "awayOdds": "1.625",
+  "date": "2024-05-24",
+  "timestamp": 1716532569
+},
+{
+  "_id": {
+    "$oid": "6650355eabbbed604fef6d27"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532574
+},
+{
+  "_id": {
+    "$oid": "6650355eabbbed604fef6d28"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:30",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "15-16",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.500",
+  "awayOdds": "2.500",
+  "date": "2024-05-24",
+  "timestamp": 1716532574
+},
+{
+  "_id": {
+    "$oid": "6650355eabbbed604fef6d29"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:06",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "21-23",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "1.666",
+  "awayOdds": "2.100",
+  "date": "2024-05-24",
+  "timestamp": 1716532574
+},
+{
+  "_id": {
+    "$oid": "6650355eabbbed604fef6d2a"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 00:46",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532574
+},
+{
+  "_id": {
+    "$oid": "6650355eabbbed604fef6d2b"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:47",
+  "homeName": "瑪布亞Cardinals",
+  "score": "59-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "2.200",
+  "awayOdds": "1.625",
+  "date": "2024-05-24",
+  "timestamp": 1716532574
+},
+{
+  "_id": {
+    "$oid": "66503563abbbed604fef6d2c"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532579
+},
+{
+  "_id": {
+    "$oid": "66503563abbbed604fef6d2d"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:22",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "15-16",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.500",
+  "awayOdds": "2.500",
+  "date": "2024-05-24",
+  "timestamp": 1716532579
+},
+{
+  "_id": {
+    "$oid": "66503563abbbed604fef6d2e"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:00",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "23-23",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "1.625",
+  "awayOdds": "2.200",
+  "date": "2024-05-24",
+  "timestamp": 1716532579
+},
+{
+  "_id": {
+    "$oid": "66503563abbbed604fef6d2f"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 00:46",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532579
+},
+{
+  "_id": {
+    "$oid": "66503563abbbed604fef6d30"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:47",
+  "homeName": "瑪布亞Cardinals",
+  "score": "59-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "2.200",
+  "awayOdds": "1.625",
+  "date": "2024-05-24",
+  "timestamp": 1716532579
+},
+{
+  "_id": {
+    "$oid": "66503569abbbed604fef6d31"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532585
+},
+{
+  "_id": {
+    "$oid": "66503569abbbed604fef6d32"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:14",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "15-16",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.500",
+  "awayOdds": "2.500",
+  "date": "2024-05-24",
+  "timestamp": 1716532585
+},
+{
+  "_id": {
+    "$oid": "66503569abbbed604fef6d33"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:00",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "23-23",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716532585
+},
+{
+  "_id": {
+    "$oid": "66503569abbbed604fef6d34"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 00:46",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532585
+},
+{
+  "_id": {
+    "$oid": "66503569abbbed604fef6d35"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:46",
+  "homeName": "瑪布亞Cardinals",
+  "score": "59-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "2.200",
+  "awayOdds": "1.625",
+  "date": "2024-05-24",
+  "timestamp": 1716532585
+},
+{
+  "_id": {
+    "$oid": "6650356eabbbed604fef6d36"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532590
+},
+{
+  "_id": {
+    "$oid": "6650356eabbbed604fef6d37"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:14",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "15-16",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.625",
+  "awayOdds": "2.200",
+  "date": "2024-05-24",
+  "timestamp": 1716532590
+},
+{
+  "_id": {
+    "$oid": "6650356eabbbed604fef6d38"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:00",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "23-23",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716532590
+},
+{
+  "_id": {
+    "$oid": "6650356eabbbed604fef6d39"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 00:46",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532590
+},
+{
+  "_id": {
+    "$oid": "6650356eabbbed604fef6d3a"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:47",
+  "homeName": "瑪布亞Cardinals",
+  "score": "59-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "2.200",
+  "awayOdds": "1.625",
+  "date": "2024-05-24",
+  "timestamp": 1716532590
+},
+{
+  "_id": {
+    "$oid": "66503573abbbed604fef6d3b"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532595
+},
+{
+  "_id": {
+    "$oid": "66503573abbbed604fef6d3c"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:03",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "15-18",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.625",
+  "awayOdds": "2.200",
+  "date": "2024-05-24",
+  "timestamp": 1716532595
+},
+{
+  "_id": {
+    "$oid": "66503573abbbed604fef6d3d"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:00",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "23-23",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "1.800",
+  "awayOdds": "1.869",
+  "date": "2024-05-24",
+  "timestamp": 1716532595
+},
+{
+  "_id": {
+    "$oid": "66503573abbbed604fef6d3e"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 00:46",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532595
+},
+{
+  "_id": {
+    "$oid": "66503573abbbed604fef6d3f"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:47",
+  "homeName": "瑪布亞Cardinals",
+  "score": "59-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "2.200",
+  "awayOdds": "1.625",
+  "date": "2024-05-24",
+  "timestamp": 1716532595
+},
+{
+  "_id": {
+    "$oid": "66503578abbbed604fef6d40"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532600
+},
+{
+  "_id": {
+    "$oid": "66503578abbbed604fef6d41"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:03",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "15-16",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.625",
+  "awayOdds": "2.200",
+  "date": "2024-05-24",
+  "timestamp": 1716532600
+},
+{
+  "_id": {
+    "$oid": "66503578abbbed604fef6d42"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:14",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "23-23",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "1.666",
+  "awayOdds": "2.100",
+  "date": "2024-05-24",
+  "timestamp": 1716532600
+},
+{
+  "_id": {
+    "$oid": "66503578abbbed604fef6d43"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 01:03",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532600
+},
+{
+  "_id": {
+    "$oid": "66503578abbbed604fef6d44"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:47",
+  "homeName": "瑪布亞Cardinals",
+  "score": "59-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "2.200",
+  "awayOdds": "1.625",
+  "date": "2024-05-24",
+  "timestamp": 1716532600
+},
+{
+  "_id": {
+    "$oid": "6650357eabbbed604fef6d45"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532606
+},
+{
+  "_id": {
+    "$oid": "6650357eabbbed604fef6d46"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:03",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "15-18",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.625",
+  "awayOdds": "2.200",
+  "date": "2024-05-24",
+  "timestamp": 1716532606
+},
+{
+  "_id": {
+    "$oid": "6650357eabbbed604fef6d47"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:00",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "23-23",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716532606
+},
+{
+  "_id": {
+    "$oid": "6650357eabbbed604fef6d48"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 00:31",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532606
+},
+{
+  "_id": {
+    "$oid": "6650357eabbbed604fef6d49"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:46",
+  "homeName": "瑪布亞Cardinals",
+  "score": "59-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "2.200",
+  "awayOdds": "1.625",
+  "date": "2024-05-24",
+  "timestamp": 1716532606
+},
+{
+  "_id": {
+    "$oid": "66503583abbbed604fef6d4a"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532611
+},
+{
+  "_id": {
+    "$oid": "66503583abbbed604fef6d4b"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:03",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "15-18",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.476",
+  "awayOdds": "2.550",
+  "date": "2024-05-24",
+  "timestamp": 1716532611
+},
+{
+  "_id": {
+    "$oid": "66503583abbbed604fef6d4c"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:00",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "23-23",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716532611
+},
+{
+  "_id": {
+    "$oid": "66503583abbbed604fef6d4d"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 00:31",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532611
+},
+{
+  "_id": {
+    "$oid": "66503583abbbed604fef6d4e"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:46",
+  "homeName": "瑪布亞Cardinals",
+  "score": "59-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "2.200",
+  "awayOdds": "1.625",
+  "date": "2024-05-24",
+  "timestamp": 1716532611
+},
+{
+  "_id": {
+    "$oid": "66503588abbbed604fef6d4f"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532616
+},
+{
+  "_id": {
+    "$oid": "66503588abbbed604fef6d50"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:03",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "15-18",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.625",
+  "awayOdds": "2.200",
+  "date": "2024-05-24",
+  "timestamp": 1716532616
+},
+{
+  "_id": {
+    "$oid": "66503588abbbed604fef6d51"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:00",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "23-25",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716532616
+},
+{
+  "_id": {
+    "$oid": "66503588abbbed604fef6d52"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 00:46",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532616
+},
+{
+  "_id": {
+    "$oid": "66503588abbbed604fef6d53"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:34",
+  "homeName": "瑪布亞Cardinals",
+  "score": "59-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "2.200",
+  "awayOdds": "1.625",
+  "date": "2024-05-24",
+  "timestamp": 1716532616
+},
+{
+  "_id": {
+    "$oid": "6650358dabbbed604fef6d54"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532621
+},
+{
+  "_id": {
+    "$oid": "6650358dabbbed604fef6d55"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:01",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "18-18",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.434",
+  "awayOdds": "2.650",
+  "date": "2024-05-24",
+  "timestamp": 1716532621
+},
+{
+  "_id": {
+    "$oid": "6650358dabbbed604fef6d56"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:00",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "23-25",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716532621
+},
+{
+  "_id": {
+    "$oid": "6650358dabbbed604fef6d57"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 00:54",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532621
+},
+{
+  "_id": {
+    "$oid": "6650358dabbbed604fef6d58"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:47",
+  "homeName": "瑪布亞Cardinals",
+  "score": "59-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "2.200",
+  "awayOdds": "1.625",
+  "date": "2024-05-24",
+  "timestamp": 1716532621
+},
+{
+  "_id": {
+    "$oid": "66503593abbbed604fef6d59"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532627
+},
+{
+  "_id": {
+    "$oid": "66503593abbbed604fef6d5a"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "1 - 00:03",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "15-18",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.625",
+  "awayOdds": "2.200",
+  "date": "2024-05-24",
+  "timestamp": 1716532627
+},
+{
+  "_id": {
+    "$oid": "66503593abbbed604fef6d5b"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "2 - 05:00",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "23-25",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716532627
+},
+{
+  "_id": {
+    "$oid": "66503593abbbed604fef6d5c"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 00:31",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532627
+},
+{
+  "_id": {
+    "$oid": "66503593abbbed604fef6d5d"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:46",
+  "homeName": "瑪布亞Cardinals",
+  "score": "59-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "2.200",
+  "awayOdds": "1.625",
+  "date": "2024-05-24",
+  "timestamp": 1716532627
+},
+{
+  "_id": {
+    "$oid": "66503598abbbed604fef6d5e"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532632
+},
+{
+  "_id": {
+    "$oid": "66503598abbbed604fef6d5f"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "2 - 05:00",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "18-18",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.416",
+  "awayOdds": "2.700",
+  "date": "2024-05-24",
+  "timestamp": 1716532632
+},
+{
+  "_id": {
+    "$oid": "66503598abbbed604fef6d60"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "2 - 05:00",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "23-23",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716532632
+},
+{
+  "_id": {
+    "$oid": "66503598abbbed604fef6d61"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 00:31",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532632
+},
+{
+  "_id": {
+    "$oid": "66503598abbbed604fef6d62"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:22",
+  "homeName": "瑪布亞Cardinals",
+  "score": "61-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "1.909",
+  "awayOdds": "1.769",
+  "date": "2024-05-24",
+  "timestamp": 1716532632
+},
+{
+  "_id": {
+    "$oid": "6650359dabbbed604fef6d63"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532637
+},
+{
+  "_id": {
+    "$oid": "6650359dabbbed604fef6d64"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "2 - 05:00",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "18-18",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.416",
+  "awayOdds": "2.700",
+  "date": "2024-05-24",
+  "timestamp": 1716532637
+},
+{
+  "_id": {
+    "$oid": "6650359dabbbed604fef6d65"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "2 - 05:00",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "23-25",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716532637
+},
+{
+  "_id": {
+    "$oid": "6650359dabbbed604fef6d66"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 00:31",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532637
+},
+{
+  "_id": {
+    "$oid": "6650359dabbbed604fef6d67"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:12",
+  "homeName": "瑪布亞Cardinals",
+  "score": "61-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "1.909",
+  "awayOdds": "1.769",
+  "date": "2024-05-24",
+  "timestamp": 1716532637
+},
+{
+  "_id": {
+    "$oid": "665035a2abbbed604fef6d68"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532642
+},
+{
+  "_id": {
+    "$oid": "665035a2abbbed604fef6d69"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "2 - 05:00",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "18-18",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.416",
+  "awayOdds": "2.700",
+  "date": "2024-05-24",
+  "timestamp": 1716532642
+},
+{
+  "_id": {
+    "$oid": "665035a2abbbed604fef6d6a"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "2 - 05:00",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "23-25",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716532642
+},
+{
+  "_id": {
+    "$oid": "665035a2abbbed604fef6d6b"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 00:31",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532642
+},
+{
+  "_id": {
+    "$oid": "665035a2abbbed604fef6d6c"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:12",
+  "homeName": "瑪布亞Cardinals",
+  "score": "61-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "1.909",
+  "awayOdds": "1.769",
+  "date": "2024-05-24",
+  "timestamp": 1716532642
+},
+{
+  "_id": {
+    "$oid": "665035a8abbbed604fef6d6d"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 05:00",
+  "homeName": "MIL Bucks (DIMES) Esports",
+  "score": "0-0",
+  "awayName": "MEM Grizzlies (SKYFOX) Esports",
+  "homeOdds": "2.100",
+  "awayOdds": "1.666",
+  "date": "2024-05-24",
+  "timestamp": 1716532648
+},
+{
+  "_id": {
+    "$oid": "665035a8abbbed604fef6d6e"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "2 - 05:00",
+  "homeName": "ORL Magic (blaylockk) Esports",
+  "score": "18-18",
+  "awayName": "OKC Thunder (panteraxball) Esports",
+  "homeOdds": "1.416",
+  "awayOdds": "2.700",
+  "date": "2024-05-24",
+  "timestamp": 1716532648
+},
+{
+  "_id": {
+    "$oid": "665035a8abbbed604fef6d6f"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "2 - 05:00",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "23-25",
+  "awayName": "LA Clippers (Lalkoff) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716532648
+},
+{
+  "_id": {
+    "$oid": "665035a8abbbed604fef6d70"
+  },
+  "leagueName": "亞洲錦標賽",
+  "raceTime": "2 - 00:31",
+  "homeName": "Naic Aces",
+  "score": "29-51",
+  "awayName": "台灣野馬",
+  "homeOdds": "16.000",
+  "awayOdds": "1.006",
+  "date": "2024-05-24",
+  "timestamp": 1716532648
+},
+{
+  "_id": {
+    "$oid": "665035a8abbbed604fef6d71"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "4 - 05:22",
+  "homeName": "瑪布亞Cardinals",
+  "score": "61-59",
+  "awayName": "聖貝達紅獅",
+  "homeOdds": "1.909",
+  "awayOdds": "1.769",
+  "date": "2024-05-24",
+  "timestamp": 1716532648
+},
+{
+  "_id": {
+    "$oid": "66504b331886266adf3ee220"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 00:25",
+  "homeName": "CLE Cavaliers (HOGGY) Esports",
+  "score": "16-10",
+  "awayName": "GS Warriors (AM) Esports",
+  "homeOdds": "1.105",
+  "awayOdds": "6.250",
+  "date": "2024-05-24",
+  "timestamp": 1716538163
+},
+{
+  "_id": {
+    "$oid": "66504b331886266adf3ee221"
+  },
+  "leagueName": "澳大利亞NBL1北部 女子",
+  "raceTime": "1 - 08:06",
+  "homeName": "[3]        湯斯維爾火焰 女子",
+  "score": "3-0",
+  "awayName": "洛根迅雷 女子\n        [9]",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716538163
+},
+{
+  "_id": {
+    "$oid": "66504b331886266adf3ee222"
+  },
+  "leagueName": "菲律賓MPBL",
+  "raceTime": "1 - 06:29",
+  "homeName": "彭加西南熱浪",
+  "score": "4-6",
+  "awayName": "西達沃老虎",
+  "homeOdds": "2.850",
+  "awayOdds": "1.384",
+  "date": "2024-05-24",
+  "timestamp": 1716538163
+},
+{
+  "_id": {
+    "$oid": "66504b331886266adf3ee223"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "3 - 02:14",
+  "homeName": "MEM Grizzlies (CARNAGE) Esports",
+  "score": "37-40",
+  "awayName": "LA Lakers (ARCHITECT) Esports",
+  "homeOdds": "2.500",
+  "awayOdds": "1.500",
+  "date": "2024-05-24",
+  "timestamp": 1716538163
+},
+{
+  "_id": {
+    "$oid": "66504b331886266adf3ee224"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "3 - 02:31",
+  "homeName": "LA Clippers (Lalkoff) Esports",
+  "score": "50-52",
+  "awayName": "MEM Grizzlies (RINT) Esports",
+  "homeOdds": "2.600",
+  "awayOdds": "1.454",
+  "date": "2024-05-24",
+  "timestamp": 1716538163
+},
+{
+  "_id": {
+    "$oid": "66504b331886266adf3ee225"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "3 - 00:57",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "53-54",
+  "awayName": "ORL Magic (blaylockk) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716538163
+},
+{
+  "_id": {
+    "$oid": "66504b331886266adf3ee226"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "4 - 00:00",
+  "homeName": "LA Lakers (RASCAL) Esports",
+  "score": "65-45",
+  "awayName": "MIL Bucks (DIMES) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716538163
+},
+{
+  "_id": {
+    "$oid": "66504b331886266adf3ee227"
+  },
+  "leagueName": "紐西蘭NBL",
+  "raceTime": "2 - 07:00",
+  "homeName": "[1]        奧克蘭鱷蜥",
+  "score": "35-24",
+  "awayName": "尼爾遜巨人\n        [6]",
+  "homeOdds": "1.025",
+  "awayOdds": "10.500",
+  "date": "2024-05-24",
+  "timestamp": 1716538163
+},
+{
+  "_id": {
+    "$oid": "66504b331886266adf3ee228"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "3 - 09:09",
+  "homeName": "UP Fighting Maroons",
+  "score": "34-36",
+  "awayName": "東方大學Red Warriors",
+  "homeOdds": "1.555",
+  "awayOdds": "2.300",
+  "date": "2024-05-24",
+  "timestamp": 1716538163
+},
+{
+  "_id": {
+    "$oid": "66504b381886266adf3ee229"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 00:17",
+  "homeName": "CLE Cavaliers (HOGGY) Esports",
+  "score": "16-10",
+  "awayName": "GS Warriors (AM) Esports",
+  "homeOdds": "1.105",
+  "awayOdds": "6.250",
+  "date": "2024-05-24",
+  "timestamp": 1716538168
+},
+{
+  "_id": {
+    "$oid": "66504b381886266adf3ee22a"
+  },
+  "leagueName": "澳大利亞NBL1北部 女子",
+  "raceTime": "1 - 08:06",
+  "homeName": "[3]        湯斯維爾火焰 女子",
+  "score": "3-0",
+  "awayName": "洛根迅雷 女子\n        [9]",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716538168
+},
+{
+  "_id": {
+    "$oid": "66504b381886266adf3ee22b"
+  },
+  "leagueName": "菲律賓MPBL",
+  "raceTime": "1 - 06:12",
+  "homeName": "彭加西南熱浪",
+  "score": "4-6",
+  "awayName": "西達沃老虎",
+  "homeOdds": "2.900",
+  "awayOdds": "1.363",
+  "date": "2024-05-24",
+  "timestamp": 1716538168
+},
+{
+  "_id": {
+    "$oid": "66504b381886266adf3ee22c"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "3 - 02:46",
+  "homeName": "MEM Grizzlies (CARNAGE) Esports",
+  "score": "37-40",
+  "awayName": "LA Lakers (ARCHITECT) Esports",
+  "homeOdds": "2.750",
+  "awayOdds": "1.400",
+  "date": "2024-05-24",
+  "timestamp": 1716538168
+},
+{
+  "_id": {
+    "$oid": "66504b381886266adf3ee22d"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "3 - 02:31",
+  "homeName": "LA Clippers (Lalkoff) Esports",
+  "score": "50-52",
+  "awayName": "MEM Grizzlies (RINT) Esports",
+  "homeOdds": "2.600",
+  "awayOdds": "1.454",
+  "date": "2024-05-24",
+  "timestamp": 1716538168
+},
+{
+  "_id": {
+    "$oid": "66504b381886266adf3ee22e"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "3 - 00:57",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "53-54",
+  "awayName": "ORL Magic (blaylockk) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716538168
+},
+{
+  "_id": {
+    "$oid": "66504b381886266adf3ee22f"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "4 - 00:00",
+  "homeName": "LA Lakers (RASCAL) Esports",
+  "score": "65-45",
+  "awayName": "MIL Bucks (DIMES) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716538168
+},
+{
+  "_id": {
+    "$oid": "66504b381886266adf3ee230"
+  },
+  "leagueName": "紐西蘭NBL",
+  "raceTime": "2 - 07:00",
+  "homeName": "[1]        奧克蘭鱷蜥",
+  "score": "35-24",
+  "awayName": "尼爾遜巨人\n        [6]",
+  "homeOdds": "1.025",
+  "awayOdds": "10.500",
+  "date": "2024-05-24",
+  "timestamp": 1716538168
+},
+{
+  "_id": {
+    "$oid": "66504b381886266adf3ee231"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "3 - 09:09",
+  "homeName": "UP Fighting Maroons",
+  "score": "34-36",
+  "awayName": "東方大學Red Warriors",
+  "homeOdds": "1.555",
+  "awayOdds": "2.300",
+  "date": "2024-05-24",
+  "timestamp": 1716538168
+},
+{
+  "_id": {
+    "$oid": "66504b3d1886266adf3ee232"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 00:17",
+  "homeName": "CLE Cavaliers (HOGGY) Esports",
+  "score": "16-10",
+  "awayName": "GS Warriors (AM) Esports",
+  "homeOdds": "1.105",
+  "awayOdds": "6.250",
+  "date": "2024-05-24",
+  "timestamp": 1716538173
+},
+{
+  "_id": {
+    "$oid": "66504b3d1886266adf3ee233"
+  },
+  "leagueName": "澳大利亞NBL1北部 女子",
+  "raceTime": "1 - 08:03",
+  "homeName": "[3]        湯斯維爾火焰 女子",
+  "score": "3-0",
+  "awayName": "洛根迅雷 女子\n        [9]",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716538173
+},
+{
+  "_id": {
+    "$oid": "66504b3d1886266adf3ee234"
+  },
+  "leagueName": "菲律賓MPBL",
+  "raceTime": "1 - 06:21",
+  "homeName": "彭加西南熱浪",
+  "score": "4-6",
+  "awayName": "西達沃老虎",
+  "homeOdds": "2.900",
+  "awayOdds": "1.363",
+  "date": "2024-05-24",
+  "timestamp": 1716538173
+},
+{
+  "_id": {
+    "$oid": "66504b3d1886266adf3ee235"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "3 - 02:46",
+  "homeName": "MEM Grizzlies (CARNAGE) Esports",
+  "score": "37-40",
+  "awayName": "LA Lakers (ARCHITECT) Esports",
+  "homeOdds": "2.750",
+  "awayOdds": "1.400",
+  "date": "2024-05-24",
+  "timestamp": 1716538173
+},
+{
+  "_id": {
+    "$oid": "66504b3d1886266adf3ee236"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "3 - 02:31",
+  "homeName": "LA Clippers (Lalkoff) Esports",
+  "score": "50-52",
+  "awayName": "MEM Grizzlies (RINT) Esports",
+  "homeOdds": "2.600",
+  "awayOdds": "1.454",
+  "date": "2024-05-24",
+  "timestamp": 1716538173
+},
+{
+  "_id": {
+    "$oid": "66504b3d1886266adf3ee237"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "3 - 00:57",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "53-54",
+  "awayName": "ORL Magic (blaylockk) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716538173
+},
+{
+  "_id": {
+    "$oid": "66504b3d1886266adf3ee238"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "4 - 00:00",
+  "homeName": "LA Lakers (RASCAL) Esports",
+  "score": "65-45",
+  "awayName": "MIL Bucks (DIMES) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716538173
+},
+{
+  "_id": {
+    "$oid": "66504b3d1886266adf3ee239"
+  },
+  "leagueName": "紐西蘭NBL",
+  "raceTime": "2 - 07:00",
+  "homeName": "[1]        奧克蘭鱷蜥",
+  "score": "35-24",
+  "awayName": "尼爾遜巨人\n        [6]",
+  "homeOdds": "1.025",
+  "awayOdds": "10.500",
+  "date": "2024-05-24",
+  "timestamp": 1716538173
+},
+{
+  "_id": {
+    "$oid": "66504b3d1886266adf3ee23a"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "3 - 09:00",
+  "homeName": "UP Fighting Maroons",
+  "score": "34-36",
+  "awayName": "東方大學Red Warriors",
+  "homeOdds": "1.555",
+  "awayOdds": "2.300",
+  "date": "2024-05-24",
+  "timestamp": 1716538173
+},
+{
+  "_id": {
+    "$oid": "66504b421886266adf3ee23b"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "1 - 00:09",
+  "homeName": "CLE Cavaliers (HOGGY) Esports",
+  "score": "16-10",
+  "awayName": "GS Warriors (AM) Esports",
+  "homeOdds": "1.105",
+  "awayOdds": "6.250",
+  "date": "2024-05-24",
+  "timestamp": 1716538178
+},
+{
+  "_id": {
+    "$oid": "66504b421886266adf3ee23c"
+  },
+  "leagueName": "澳大利亞NBL1北部 女子",
+  "raceTime": "1 - 08:06",
+  "homeName": "[3]        湯斯維爾火焰 女子",
+  "score": "3-0",
+  "awayName": "洛根迅雷 女子\n        [9]",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716538178
+},
+{
+  "_id": {
+    "$oid": "66504b421886266adf3ee23d"
+  },
+  "leagueName": "菲律賓MPBL",
+  "raceTime": "1 - 06:00",
+  "homeName": "彭加西南熱浪",
+  "score": "4-6",
+  "awayName": "西達沃老虎",
+  "homeOdds": "2.850",
+  "awayOdds": "1.384",
+  "date": "2024-05-24",
+  "timestamp": 1716538178
+},
+{
+  "_id": {
+    "$oid": "66504b421886266adf3ee23e"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "3 - 02:08",
+  "homeName": "MEM Grizzlies (CARNAGE) Esports",
+  "score": "37-40",
+  "awayName": "LA Lakers (ARCHITECT) Esports",
+  "homeOdds": "2.400",
+  "awayOdds": "1.526",
+  "date": "2024-05-24",
+  "timestamp": 1716538178
+},
+{
+  "_id": {
+    "$oid": "66504b421886266adf3ee23f"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "3 - 02:31",
+  "homeName": "LA Clippers (Lalkoff) Esports",
+  "score": "50-52",
+  "awayName": "MEM Grizzlies (RINT) Esports",
+  "homeOdds": "2.600",
+  "awayOdds": "1.454",
+  "date": "2024-05-24",
+  "timestamp": 1716538178
+},
+{
+  "_id": {
+    "$oid": "66504b421886266adf3ee240"
+  },
+  "leagueName": "籃球電競之戰 - 4x5分鐘",
+  "raceTime": "3 - 00:52",
+  "homeName": "NY Knicks (Moody) Esports",
+  "score": "53-55",
+  "awayName": "ORL Magic (blaylockk) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716538178
+},
+{
+  "_id": {
+    "$oid": "66504b421886266adf3ee241"
+  },
+  "leagueName": "籃球電競H2H GG聯賽 - 4x5分鐘賽",
+  "raceTime": "4 - 00:00",
+  "homeName": "LA Lakers (RASCAL) Esports",
+  "score": "65-45",
+  "awayName": "MIL Bucks (DIMES) Esports",
+  "homeOdds": "-",
+  "awayOdds": "-",
+  "date": "2024-05-24",
+  "timestamp": 1716538178
+},
+{
+  "_id": {
+    "$oid": "66504b421886266adf3ee242"
+  },
+  "leagueName": "紐西蘭NBL",
+  "raceTime": "2 - 06:51",
+  "homeName": "[1]        奧克蘭鱷蜥",
+  "score": "35-27",
+  "awayName": "尼爾遜巨人\n        [6]",
+  "homeOdds": "1.035",
+  "awayOdds": "9.500",
+  "date": "2024-05-24",
+  "timestamp": 1716538178
+},
+{
+  "_id": {
+    "$oid": "66504b421886266adf3ee243"
+  },
+  "leagueName": "菲律賓季前賽杯",
+  "raceTime": "3 - 08:53",
+  "homeName": "UP Fighting Maroons",
+  "score": "37-36",
+  "awayName": "東方大學Red Warriors",
+  "homeOdds": "1.363",
+  "awayOdds": "2.900",
+  "date": "2024-05-24",
+  "timestamp": 1716538178
+}]

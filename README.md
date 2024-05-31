@@ -6,7 +6,7 @@ tool helps you keep track of changes in sports odds efficiently and effectively.
 
 ## Architecture Reference
 
-![Alt text](pkg/images/architecture.png)
+![Alt text](pkg/files/architecture.png)
 
 ## Todo List
 
