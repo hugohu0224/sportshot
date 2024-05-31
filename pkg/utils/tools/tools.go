@@ -1,8 +1,10 @@
 package tools
 
 import (
+	"context"
 	"errors"
 	"net"
+	"time"
 )
 
 func GetLocalHost() (string, error) {
@@ -43,4 +45,8 @@ func GetLocalHost() (string, error) {
 		}
 	}
 	return "", errors.New("connected network is not found")
+}
+
+func TimeOutCtx(s int) (context.Context, context.CancelFunc) {
+	return context.WithTimeout(context.Background(), time.Duration(s)*time.Second)
 }
