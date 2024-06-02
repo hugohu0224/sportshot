@@ -48,11 +48,12 @@ services:
         <<: *common-env
         SERVER: crawler
     container_name: crawler
+    depends_on:
+      - mongodb
     volumes:
       - ./config.yaml:/app/config.yaml
 
   eventserver:
-#    network_mode: "host"
     build:
       context: .
       dockerfile: Dockerfile
@@ -64,6 +65,7 @@ services:
     container_name: eventserver
     depends_on:
       - etcd
+      - mongodb
     volumes:
       - ./config.yaml:/app/config.yaml
 
