@@ -2,11 +2,12 @@ package main
 
 import (
 	"context"
+	"github.com/spf13/viper"
 	"go.uber.org/zap"
-	"sportshot/internal/crawler/operator"
+	"sportshot/internal/crawler"
 	"sportshot/pkg/utils/db"
 	"sportshot/pkg/utils/global"
-	"time"
+	"sportshot/pkg/utils/tools"
 )
 
 func main() {
@@ -16,7 +17,7 @@ func main() {
 	zap.S().Infof("logger initialized")
 
 	// basketball crawler
-	basketballCrawler := operator.BasketballCrawler{}
+	basketballCrawler := &crawler.BasketballCrawler{}
 	zap.S().Infof("BasketballCrawler initialized")
 
 	// config
@@ -28,11 +29,8 @@ func main() {
 	defer global.MongodbClient.Disconnect(context.TODO())
 	zap.S().Infof("MongoClient initialized")
 
-	// crawl
-	for {
-		zap.S().Infof("start to crawl")
-		events := basketballCrawler.Crawl()
-		basketballCrawler.SaveToMongo(events)
-		time.Sleep(5 * time.Second)
-	}
+	// start to crawl
+	go tools.CrawlerTicker(basketballCrawler, viper.GetInt("CRAWL_SECOND_INTERVAL"))
+	select {}
+
 }

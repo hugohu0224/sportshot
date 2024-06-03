@@ -1,4 +1,4 @@
-package operator
+package crawler
 
 import (
 	"context"
@@ -14,7 +14,7 @@ import (
 type BasketballCrawler struct {
 }
 
-func (cr *BasketballCrawler) Crawl() []event.SportEvent {
+func (bc *BasketballCrawler) Crawl() []event.SportEvent {
 	// initial Colly
 	c := colly.NewCollector()
 
@@ -72,7 +72,7 @@ func (cr *BasketballCrawler) Crawl() []event.SportEvent {
 	return <-resultChan
 }
 
-func (cr *BasketballCrawler) SaveToMongo(events []event.SportEvent) {
+func (bc *BasketballCrawler) SaveToMongo(events []event.SportEvent) {
 	// connect to mongo
 	databaseName := "sportevents"
 	collectionName := "basketball"

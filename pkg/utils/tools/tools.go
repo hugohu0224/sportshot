@@ -3,7 +3,9 @@ package tools
 import (
 	"context"
 	"errors"
+	"go.uber.org/zap"
 	"net"
+	"sportshot/internal/crawler"
 	"time"
 )
 
@@ -49,4 +51,21 @@ func GetLocalHost() (string, error) {
 
 func TimeOutCtx(s int) (context.Context, context.CancelFunc) {
 	return context.WithTimeout(context.Background(), time.Duration(s)*time.Second)
+}
+
+func CrawlerTicker(crawler crawler.Crawler, timeInterval int) {
+	zap.S().Infof("Start to crawl")
+	events := crawler.Crawl()
+	crawler.SaveToMongo(events)
+
+	// make interval
+	ticker := time.NewTicker(time.Duration(timeInterval) * time.Second)
+	defer ticker.Stop()
+	for {
+		select {
+		case <-ticker.C:
+			events = crawler.Crawl()
+			crawler.SaveToMongo(events)
+		}
+	}
 }

@@ -1,2 +1,3 @@
-# Viper needs to read this file, but has moved the old config to docker-compose.yaml,
-# so it's left blank for now.
+# Control the frequency of all crawler
+CRAWL_SECOND_INTERVAL : 30
+
