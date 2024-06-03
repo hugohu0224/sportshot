@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search and Display Events</title>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px;
-        }
-    </style>
-</head>
+{{template "header.tmpl"}}
 <body>
-<h1>Search for Events</h1>
+<h1>Search Events</h1>
 <form id="searchForm">
     <label for="leagueName">League Name:</label>
     <input type="text" id="leagueName" name="leagueName"><br><br>
@@ -52,6 +37,6 @@
     </tbody>
 </table>
 
-<script src="app.js"></script>
+<script src="./static/app.js"></script>
 </body>
-</html>
+{{template "footer.tmpl"}}

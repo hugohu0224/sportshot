@@ -9,7 +9,7 @@ import (
 	"log"
 	"os"
 	"sportshot/pkg/utils/global"
-	"sportshot/pkg/utils/models/event"
+	"sportshot/pkg/utils/models/events"
 	"sportshot/pkg/utils/tools"
 )
 
@@ -72,7 +72,7 @@ func InitOldDataForDemo(dbName string, collectionName string, filePath string) {
 	}
 
 	// unmarshal
-	var events []event.SportEvent
+	var events []events.SportEvent
 	err = json.Unmarshal(jsonData, &events)
 	if err != nil {
 		log.Fatal(err)

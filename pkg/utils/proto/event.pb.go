@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.28.1
 // 	protoc        v4.25.3
-// source: event.proto
+// source: events.proto
 
 package proto
 
@@ -334,14 +334,14 @@ func file_event_proto_rawDescGZIP() []byte {
 
 var file_event_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_event_proto_goTypes = []interface{}{
-	(*SearchEventsRequest)(nil), // 0: event.SearchEventsRequest
-	(*EventInfo)(nil),           // 1: event.EventInfo
-	(*EventsReply)(nil),         // 2: event.EventsReply
+	(*SearchEventsRequest)(nil), // 0: events.SearchEventsRequest
+	(*EventInfo)(nil),           // 1: events.EventInfo
+	(*EventsReply)(nil),         // 2: events.EventsReply
 }
 var file_event_proto_depIdxs = []int32{
-	1, // 0: event.EventsReply.events:type_name -> event.EventInfo
-	0, // 1: event.EventService.SearchEvents:input_type -> event.SearchEventsRequest
-	2, // 2: event.EventService.SearchEvents:output_type -> event.EventsReply
+	1, // 0: events.EventsReply.events:type_name -> events.EventInfo
+	0, // 1: events.EventService.SearchEvents:input_type -> events.SearchEventsRequest
+	2, // 2: events.EventService.SearchEvents:output_type -> events.EventsReply
 	2, // [2:3] is the sub-list for method output_type
 	1, // [1:2] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name

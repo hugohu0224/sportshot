@@ -9,7 +9,7 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"net/http"
 	"sportshot/pkg/utils/global"
-	"sportshot/pkg/utils/models/event"
+	"sportshot/pkg/utils/models/events"
 	"sportshot/pkg/utils/proto"
 )
 
@@ -27,7 +27,7 @@ func UnaryInterceptor(
 }
 
 func GetEvents(ctx *gin.Context) {
-	var f event.SearchEventsForm
+	var f events.SearchEventsForm
 	// empty query params
 	if len(ctx.Request.URL.Query()) == 0 {
 		ctx.JSON(200, gin.H{

@@ -13,7 +13,7 @@ ARG SERVER
 RUN if [ "$SERVER" = "crawler" ]; then \
       go build -o /app/crawler ./cmd/crawler; \
     elif [ "$SERVER" = "eventserver" ]; then \
-      go build -o /app/eventserver ./cmd/grpcserver/event; \
+      go build -o /app/eventserver ./cmd/grpcserver/events; \
     elif [ "$SERVER" = "webserver" ]; then \
       go build -o /app/webserver ./cmd/webserver; \
     else \

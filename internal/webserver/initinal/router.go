@@ -10,6 +10,7 @@ import (
 func InitRouters() *gin.Engine {
 	r := gin.Default()
 	r.Use(cors.Default())
+	r.LoadHTMLGlob("./internal/webserver/templates/*.tmpl")
 
 	r.GET("/health", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{

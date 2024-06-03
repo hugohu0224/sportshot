@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v4.25.3
-// source: event.proto
+// source: events.proto
 
 package proto
 
@@ -35,7 +35,7 @@ func NewEventServiceClient(cc grpc.ClientConnInterface) EventServiceClient {
 
 func (c *eventServiceClient) SearchEvents(ctx context.Context, in *SearchEventsRequest, opts ...grpc.CallOption) (*EventsReply, error) {
 	out := new(EventsReply)
-	err := c.cc.Invoke(ctx, "/event.EventService/SearchEvents", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/events.EventService/SearchEvents", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func _EventService_SearchEvents_Handler(srv interface{}, ctx context.Context, de
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/event.EventService/SearchEvents",
+		FullMethod: "/events.EventService/SearchEvents",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(EventServiceServer).SearchEvents(ctx, req.(*SearchEventsRequest))
@@ -92,7 +92,7 @@ func _EventService_SearchEvents_Handler(srv interface{}, ctx context.Context, de
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var EventService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "event.EventService",
+	ServiceName: "events.EventService",
 	HandlerType: (*EventServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -101,5 +101,5 @@ var EventService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "event.proto",
+	Metadata: "events.proto",
 }

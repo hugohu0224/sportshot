@@ -1,3 +1,2 @@
 # Control the frequency of all crawler
 CRAWL_SECOND_INTERVAL : 30
-
