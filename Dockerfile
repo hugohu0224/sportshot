@@ -13,7 +13,7 @@ ARG SERVER
 RUN if [ "$SERVER" = "crawler" ]; then \
       go build -o /app/crawler ./cmd/crawler; \
     elif [ "$SERVER" = "eventserver" ]; then \
-      go build -o /app/eventserver ./cmd/grpcserver/event; \
+      go build -o /app/eventserver ./cmd/grpcserver/events; \
     elif [ "$SERVER" = "webserver" ]; then \
       go build -o /app/webserver ./cmd/webserver; \
     else \
@@ -31,6 +31,7 @@ COPY --from=builder /app/${SERVER} .
 
 # get static for webserver needed
 COPY internal/webserver/static/ internal/webserver/static/
+COPY internal/webserver/templates/ internal/webserver/templates/
 
 # get Jason data for eventserver initial needed
 COPY pkg/files/sportevents.basketball.json pkg/files/sportevents.basketball.json

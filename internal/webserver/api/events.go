@@ -9,8 +9,9 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"net/http"
 	"sportshot/pkg/utils/global"
-	"sportshot/pkg/utils/models/event"
+	"sportshot/pkg/utils/models/events"
 	"sportshot/pkg/utils/proto"
+	"sportshot/pkg/utils/tools"
 )
 
 // UnaryInterceptor checking the target
@@ -27,7 +28,7 @@ func UnaryInterceptor(
 }
 
 func GetEvents(ctx *gin.Context) {
-	var f event.SearchEventsForm
+	var f events.SearchEventsForm
 	// empty query params
 	if len(ctx.Request.URL.Query()) == 0 {
 		ctx.JSON(200, gin.H{
@@ -56,8 +57,12 @@ func GetEvents(ctx *gin.Context) {
 	)
 
 	// start to search
-	c := proto.NewEventServiceClient(conn)
-	res, err := c.SearchEvents(context.Background(), &proto.SearchEventsRequest{
+	client := proto.NewEventServiceClient(conn)
+
+	c, cancel := tools.TimeOutCtx(3)
+	defer cancel()
+
+	res, err := client.SearchEvents(c, &proto.SearchEventsRequest{
 		LeagueName: f.LeagueName,
 		HomeName:   f.HomeName,
 		AwayName:   f.AwayName,

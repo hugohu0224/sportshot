@@ -6,7 +6,7 @@ import (
 	"github.com/gocolly/colly/v2"
 	"go.uber.org/zap"
 	"sportshot/pkg/utils/global"
-	"sportshot/pkg/utils/models/event"
+	"sportshot/pkg/utils/models/events"
 	"strings"
 	"time"
 )
@@ -14,27 +14,27 @@ import (
 type BasketballCrawler struct {
 }
 
-func (bc *BasketballCrawler) Crawl() []event.SportEvent {
+func (bc *BasketballCrawler) Crawl() []events.SportEvent {
 	// initial Colly
 	c := colly.NewCollector()
 
 	// to avoid return before the subsequent Visit is completed,
 	// created a channel to receive the result (blocking).
-	resultChan := make(chan []event.SportEvent, 1)
+	resultChan := make(chan []events.SportEvent, 1)
 
 	// crawl logic
 	c.OnHTML("#tbl_inplay > tbody", func(e *colly.HTMLElement) {
 		currentTimestamp := time.Now().Unix()
-		var events []event.SportEvent
+		var eventList []events.SportEvent
 		zap.S().Info("crawling basketball events ")
 		// find the "tr" (rows)
 		e.ForEach("tr", func(_ int, el *colly.HTMLElement) {
 			// "td" in "tr" (single row)
-			ev := event.SportEvent{}
+			ev := events.SportEvent{}
 			columnIdx := 0
 			el.ForEach("td", func(index int, td *colly.HTMLElement) {
 				// since many different columns use the same class tag,
-				// the event is retrieved in sequential order.
+				// the events is retrieved in sequential order.
 				ev.Timestamp = int(currentTimestamp)
 				ev.Date = time.Now().Format("2006-01-02")
 				switch columnIdx {
@@ -56,9 +56,9 @@ func (bc *BasketballCrawler) Crawl() []event.SportEvent {
 				columnIdx += 1
 			})
 			//  collecting events
-			events = append(events, ev)
+			eventList = append(eventList, ev)
 		})
-		resultChan <- events
+		resultChan <- eventList
 	})
 
 	c.OnRequest(func(r *colly.Request) {
@@ -72,7 +72,7 @@ func (bc *BasketballCrawler) Crawl() []event.SportEvent {
 	return <-resultChan
 }
 
-func (bc *BasketballCrawler) SaveToMongo(events []event.SportEvent) {
+func (bc *BasketballCrawler) SaveToMongo(events []events.SportEvent) {
 	// connect to mongo
 	databaseName := "sportevents"
 	collectionName := "basketball"

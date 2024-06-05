@@ -6,7 +6,7 @@ import (
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"net"
-	"sportshot/internal/grpcserver/event/service"
+	"sportshot/internal/grpcserver/events"
 	"sportshot/pkg/utils/db"
 	"sportshot/pkg/utils/global"
 	pb "sportshot/pkg/utils/proto"
@@ -57,7 +57,7 @@ func main() {
 		zap.S().Panicf(fmt.Sprintf("failed to listen: %v", err), zap.Error(err))
 	}
 	s := grpc.NewServer()
-	pb.RegisterEventServiceServer(s, &service.EventServer{})
+	pb.RegisterEventServiceServer(s, &events.EventServer{})
 	zap.S().Infof("server listening at %v", lis.Addr())
 	if err := s.Serve(lis); err != nil {
 		zap.S().Panicf(fmt.Sprintf("failed to serve: %v", err), zap.Error(err))
