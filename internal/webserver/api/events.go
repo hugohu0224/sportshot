@@ -27,6 +27,10 @@ func UnaryInterceptor(
 	return invoker(ctx, method, req, reply, cc, opts...)
 }
 
+func GetSearchPage(ctx *gin.Context) {
+	ctx.HTML(http.StatusOK, "search-events.tmpl", gin.H{})
+}
+
 func GetEvents(ctx *gin.Context) {
 	var f events.SearchEventsForm
 	// empty query params

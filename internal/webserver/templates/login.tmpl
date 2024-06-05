@@ -1,12 +1,13 @@
 <link rel="stylesheet" href="./static/login.css">
 <div class="wrapper">
     <form class="login" id="loginForm">
-        <p class="title">Log in</p>
+        <p class="title">Sportshot</p>
         <input type="text" placeholder="Username" autofocus id="username"/>
         <i class="fa fa-user"></i>
         <input type="password" placeholder="Password" id="password"/>
         <i class="fa fa-key"></i>
-        <!-- <a href="#">Forgot your password?</a> -->
+        <a href="/v1/events/search" style="float: left;">Forgot your password?</a>
+        <a href="/v1/events/search" style="float: right;"> Signup?</a>
         <button type="submit">
             <i class="spinner"></i>
             <span class="state">Log in</span>
