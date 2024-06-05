@@ -11,6 +11,7 @@ import (
 	"sportshot/pkg/utils/global"
 	"sportshot/pkg/utils/models/events"
 	"sportshot/pkg/utils/proto"
+	"sportshot/pkg/utils/tools"
 )
 
 // UnaryInterceptor checking the target
@@ -56,8 +57,12 @@ func GetEvents(ctx *gin.Context) {
 	)
 
 	// start to search
-	c := proto.NewEventServiceClient(conn)
-	res, err := c.SearchEvents(context.Background(), &proto.SearchEventsRequest{
+	client := proto.NewEventServiceClient(conn)
+
+	c, cancel := tools.TimeOutCtx(3)
+	defer cancel()
+
+	res, err := client.SearchEvents(c, &proto.SearchEventsRequest{
 		LeagueName: f.LeagueName,
 		HomeName:   f.HomeName,
 		AwayName:   f.AwayName,

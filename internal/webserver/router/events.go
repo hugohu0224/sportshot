@@ -10,7 +10,7 @@ func InitEventRouter(router *gin.RouterGroup) {
 	Router := router.Group("/events")
 
 	{
-		Router.Static("/static", "./internal/webserver/static")
+		Router.Static("/static", "./internal/webserver/static/events")
 		Router.GET("/search", func(ctx *gin.Context) {
 			ctx.HTML(http.StatusOK, "search-events.tmpl", gin.H{})
 		})

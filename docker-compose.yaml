@@ -8,7 +8,6 @@ x-common:
     ETCD_CONN: http://etcd:2379
     MYSQL_CONN: 'mysql+pymysql://admin:passwird@mysql/mydatabase'
 
-
 services:
   mongodb:
     image: mongo:latest

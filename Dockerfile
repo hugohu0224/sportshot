@@ -31,6 +31,7 @@ COPY --from=builder /app/${SERVER} .
 
 # get static for webserver needed
 COPY internal/webserver/static/ internal/webserver/static/
+COPY internal/webserver/templates/ internal/webserver/templates/
 
 # get Jason data for eventserver initial needed
 COPY pkg/files/sportevents.basketball.json pkg/files/sportevents.basketball.json

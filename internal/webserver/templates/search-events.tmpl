@@ -1,42 +1,47 @@
 {{template "header.tmpl"}}
+<link rel="stylesheet" href="./static/events.css">
 <body>
-<h1>Search Events</h1>
-<form id="searchForm">
-    <label for="leagueName">League Name:</label>
-    <input type="text" id="leagueName" name="leagueName"><br><br>
-    <label for="homeName">Home Name:</label>
-    <input type="text" id="homeName" name="homeName"><br><br>
-    <label for="awayName">Away Name:</label>
-    <input type="text" id="awayName" name="awayName"><br><br>
-    <label for="sportType">Sport Type:</label>
-    <input type="text" id="sportType" name="sportType"><br><br>
-    <label for="startDate">Start Date:</label>
-    <input type="date" id="startDate" name="startDate"><br><br>
-    <label for="endDate">End Date:</label>
-    <input type="date" id="endDate" name="endDate"><br><br>
-    <button type="button" onclick="searchEvents()">Search</button>
-</form>
+<div class="container">
+    <div class="search-section">
+        <h1>Search Events</h1>
+        <form id="searchForm">
+            <label for="leagueName">League Name:</label>
+            <input type="text" id="leagueName" name="leagueName"><br><br>
+            <label for="homeName">Home Name:</label>
+            <input type="text" id="homeName" name="homeName"><br><br>
+            <label for="awayName">Away Name:</label>
+            <input type="text" id="awayName" name="awayName"><br><br>
+            <label for="sportType">Sport Type:</label>
+            <input type="text" id="sportType" name="sportType"><br><br>
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate"><br><br>
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" name="endDate"><br><br>
+            <button type="button" onclick="searchEvents()">Search</button>
+        </form>
+    </div>
+    <div class="results-section">
+        <h2>Event Results</h2>
+        <table id="eventTable">
+            <thead>
+            <tr>
+                <th data-type="string" data-name="leagueName">League Name</th>
+                <th data-type="date" data-name="date">Date</th>
+                <th data-type="timestamp" data-name="timestamp">Timestamp</th>
+                <th data-type="time" data-name="raceTime">Race Time</th>
+                <th data-type="string" data-name="homeName">Home Team</th>
+                <th data-type="string" data-name="awayName">Away Team</th>
+                <th data-type="string" data-name="score">Score</th>
+                <th data-type="number" data-name="homeOdds">Home Odds</th>
+                <th data-type="number" data-name="awayOdds">Away Odds</th>
+            </tr>
+            </thead>
+            <tbody>
 
-<h2>Event Results</h2>
-<table id="eventTable">
-    <thead>
-    <tr>
-        <th data-type="string" data-name="leagueName">League Name</th>
-        <th data-type="date" data-name="date">Date</th>
-        <th data-type="timestamp" data-name="timestamp">Timestamp</th>
-        <th data-type="time" data-name="raceTime">Race Time</th>
-        <th data-type="string" data-name="homeName">Home Team</th>
-        <th data-type="string" data-name="awayName">Away Team</th>
-        <th data-type="string" data-name="score">Score</th>
-        <th data-type="number" data-name="homeOdds">Home Odds</th>
-        <th data-type="number" data-name="awayOdds">Away Odds</th>
-    </tr>
-    </thead>
-    <tbody>
-
-    </tbody>
-</table>
-
-<script src="./static/app.js"></script>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="./static/events.js"></script>
 </body>
 {{template "footer.tmpl"}}
