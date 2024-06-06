@@ -7,6 +7,7 @@ require (
 	github.com/gin-gonic/gin v1.9.1
 	github.com/gocolly/colly/v2 v2.1.0
 	github.com/google/uuid v1.6.0
+	github.com/pkg/errors v0.9.1
 	github.com/spf13/viper v1.18.2
 	go.etcd.io/etcd/client/v3 v3.5.10
 	go.mongodb.org/mongo-driver v1.15.0

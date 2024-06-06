@@ -1,19 +1,18 @@
-<link rel="stylesheet" href="./static/login.css">
+<link rel="stylesheet" href="./static/register.css">
 <div class="wrapper">
-    <form class="login" id="loginForm">
-        <p class="title">Sportshot</p>
+    <form class="login" id="registerForm">
+        <p class="title">Register</p>
         <input type="text" placeholder="Username" autofocus id="username"/>
         <i class="fa fa-user"></i>
         <input type="password" placeholder="Password" id="password"/>
         <i class="fa fa-key"></i>
-        <a href="" style="float: left;">Forgot your password?</a>
-        <a href="/v1/auth/register" style="float: right;"> Sign Up?</a>
+        <a href="/v1/auth/login" style="float: right;">Back to Log In</a>
         <button type="submit">
             <i class="spinner"></i>
-            <span class="state">Log In</span>
+            <span class="state">Sign Up</span>
         </button>
     </form>
     <footer>
     </footer>
 </div>
-<script src="./static/login.js"></script>
+<script src="./static/register.js"></script>

@@ -12,7 +12,6 @@ func main() {
 
 	global.MySQLClient = db.GetMySQLClient()
 
-	// 自动迁移
 	err := global.MySQLClient.AutoMigrate(&user.User{})
 	if err != nil {
 		panic("failed to migrate database")
@@ -26,7 +25,5 @@ func main() {
 		RefreshToken: "123",
 		Active:       false,
 	})
-
-	global.MySQLClient.First(&user.User{})
 
 }

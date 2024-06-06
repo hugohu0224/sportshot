@@ -1,4 +1,4 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
+document.getElementById('registerForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the traditional form submission
 
     var username = document.getElementById('username').value;
@@ -16,8 +16,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         return; // Exit the function early if validation fails
     }
 
-    // Execute the POST request to the login API
-    fetch('/v1/auth/login', {
+    // Execute the POST request to the regieter API
+    fetch('/v1/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -25,15 +25,18 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         body: JSON.stringify(data)
     }).then(response => {
         if (response.ok) {
+            alert('Success to register.');
             return response.json();
-        } else {
-            throw new Error('Login failed. Please try again.');
+        }
+        if (response.status===400) {
+            alert('This username has already been taken.');
+        }else {
+            throw new Error('Register failed. Please try again.');
         }
     }).then(data => {
         // redirect
-        window.location.href = '/v1/events/search';
+        window.location.href = '/v1/auth/login';
     }).catch(error => {
-        console.error('Error during login:', error);
-        alert('Login failed. Please check your username and password.');
+        alert('Error during register');
     });
 });

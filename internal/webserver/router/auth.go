@@ -10,8 +10,12 @@ func InitAuthRouter(router *gin.RouterGroup) {
 
 	{
 		Router.Static("/static", "./internal/webserver/static/auth")
-		Router.GET("/login", api.GetLoginPage)
-		Router.POST("/login", api.ValidateLogin)
+
+		Router.GET("/register", api.GetRegisterPage)
 		Router.POST("/register", api.Register)
+
+		Router.GET("/login", api.GetLoginPage)
+		Router.POST("/login", api.AuthenticateLogin)
+
 	}
 }
