@@ -6,7 +6,7 @@ x-common:
     &common-env
     MONGODB_CONN: mongodb://admin:password@mongodb:27017
     ETCD_CONN: http://etcd:2379
-    MYSQL_CONN: 'mysql+pymysql://admin:passwird@mysql/mydatabase'
+    MYSQL_DSN: admin:password@tcp(mysql:3306)/mydatabase?charset=utf8mb4&parseTime=True&loc=Local
 
 services:
   mongodb:

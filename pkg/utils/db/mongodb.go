@@ -14,7 +14,7 @@ import (
 )
 
 func GetMongodbClient() *mongo.Client {
-	uri := getMongodbURI()
+	uri := os.Getenv("MONGODB_CONN")
 	zap.S().Infof("connecting to MongoDB at %s", uri)
 
 	clientOptions := options.Client().ApplyURI(uri).
@@ -38,11 +38,6 @@ func GetMongodbClient() *mongo.Client {
 		zap.S().Fatalf("failed to ping MongoDB : %v", err)
 	}
 	return client
-}
-
-func getMongodbURI() string {
-	uri := os.Getenv("MONGODB_CONN")
-	return uri
 }
 
 func InitOldDataForDemo(dbName string, collectionName string, filePath string) {

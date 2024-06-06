@@ -25,6 +25,10 @@ func main() {
 	defer global.EtcdClient.Close()
 	zap.S().Info("etcd client initialized")
 
+	// mysql
+	global.MySQLClient = db.GetMySQLClient()
+	zap.S().Info("mysql client initialized")
+
 	// start
 	err := Router.Run("0.0.0.0:8080")
 	if err != nil {
