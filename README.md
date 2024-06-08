@@ -26,6 +26,7 @@ tool helps you keep track of changes in sports odds efficiently and effectively.
 ### WebUI
 
 * :white_check_mark: Implement the front-end page for odds searching.
+* :white_check_mark: Implement a button to control the on/off of the crawler.
 * :large_blue_diamond: Made the front-end webpage to display the crawled odds in real time.
 
 ### EventServer(grpc)
