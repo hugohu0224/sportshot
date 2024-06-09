@@ -39,10 +39,11 @@ tool helps you keep track of changes in sports odds efficiently and effectively.
 
 ### DbServer
 
-* :white_check_mark: Implement MongoDB.
-* :white_check_mark: Implement etcd.
-* :x: Implement Redis.
-* :x: Implement Kafka.
+* :white_check_mark: MongoDB for web crawler.
+* :white_check_mark: etcd for grpc.
+* :white_check_mark: MySQL for user login authentication.
+* :x: Redis.
+* :x: Kafka.
 
 ### Others
 
