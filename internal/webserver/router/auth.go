@@ -17,5 +17,7 @@ func InitAuthRouter(router *gin.RouterGroup) {
 		Router.GET("/login", api.GetLoginPage)
 		Router.POST("/login", api.AuthenticateLogin)
 
+		Router.GET("/validate", api.Validate)
+
 	}
 }

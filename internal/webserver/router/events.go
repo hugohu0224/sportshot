@@ -3,14 +3,19 @@ package router
 import (
 	"github.com/gin-gonic/gin"
 	"sportshot/internal/webserver/api"
+	"sportshot/internal/webserver/auth"
 )
 
 func InitEventRouter(router *gin.RouterGroup) {
 	Router := router.Group("/events")
-
 	{
 		Router.Static("/static", "./internal/webserver/static/events")
 		Router.GET("/search", api.GetSearchPage)
-		Router.GET("/query", api.GetEvents)
+	}
+
+	protectedRouter := router.Group("/events")
+	{
+		protectedRouter.Use(auth.AuthMiddleware())
+		protectedRouter.GET("/query", api.GetEvents)
 	}
 }
