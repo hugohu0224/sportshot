@@ -30,6 +30,9 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             throw new Error('Login failed. Please try again.');
         }
     }).then(data => {
+        console.log(data);
+        // token
+        localStorage.setItem('jwtToken', data.jwtToken);
         // redirect
         window.location.href = '/v1/events/search';
     }).catch(error => {

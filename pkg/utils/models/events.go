@@ -1,4 +1,4 @@
-package events
+package models
 
 type SportEvent struct {
 	LeagueName string `bson:"leagueName" json:"leagueName"`

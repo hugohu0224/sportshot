@@ -1,10 +1,10 @@
 package crawler
 
 import (
-	"sportshot/pkg/utils/models/events"
+	"sportshot/pkg/utils/models"
 )
 
 type Crawler interface {
-	Crawl() []events.SportEvent
-	SaveToMongo([]events.SportEvent)
+	Crawl() []models.SportEvent
+	SaveToMongo([]models.SportEvent)
 }
