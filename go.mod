@@ -3,15 +3,16 @@ module sportshot
 go 1.21
 
 require (
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gin-contrib/cors v1.7.2
 	github.com/gin-gonic/gin v1.9.1
 	github.com/gocolly/colly/v2 v2.1.0
 	github.com/google/uuid v1.6.0
-	github.com/pkg/errors v0.9.1
 	github.com/spf13/viper v1.18.2
 	go.etcd.io/etcd/client/v3 v3.5.10
 	go.mongodb.org/mongo-driver v1.15.0
 	go.uber.org/zap v1.27.0
+	golang.org/x/crypto v0.22.0
 	google.golang.org/grpc v1.63.2
 	google.golang.org/protobuf v1.34.0
 	gorm.io/driver/mysql v1.5.6
@@ -77,7 +78,6 @@ require (
 	go.etcd.io/etcd/client/pkg/v3 v3.5.10 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/arch v0.7.0 // indirect
-	golang.org/x/crypto v0.22.0 // indirect
 	golang.org/x/exp v0.0.0-20230905200255-921286631fa9 // indirect
 	golang.org/x/net v0.24.0 // indirect
 	golang.org/x/sync v0.6.0 // indirect

@@ -6,7 +6,7 @@ import (
 	"github.com/gocolly/colly/v2"
 	"go.uber.org/zap"
 	"sportshot/pkg/utils/global"
-	"sportshot/pkg/utils/models/events"
+	"sportshot/pkg/utils/models"
 	"strings"
 	"time"
 )
@@ -14,23 +14,23 @@ import (
 type BasketballCrawler struct {
 }
 
-func (bc *BasketballCrawler) Crawl() []events.SportEvent {
+func (bc *BasketballCrawler) Crawl() []models.SportEvent {
 	// initial Colly
 	c := colly.NewCollector()
 
 	// to avoid return before the subsequent Visit is completed,
 	// created a channel to receive the result (blocking).
-	resultChan := make(chan []events.SportEvent, 1)
+	resultChan := make(chan []models.SportEvent, 1)
 
 	// crawl logic
 	c.OnHTML("#tbl_inplay > tbody", func(e *colly.HTMLElement) {
 		currentTimestamp := time.Now().Unix()
-		var eventList []events.SportEvent
+		var eventList []models.SportEvent
 		zap.S().Info("crawling basketball events ")
 		// find the "tr" (rows)
 		e.ForEach("tr", func(_ int, el *colly.HTMLElement) {
 			// "td" in "tr" (single row)
-			ev := events.SportEvent{}
+			ev := models.SportEvent{}
 			columnIdx := 0
 			el.ForEach("td", func(index int, td *colly.HTMLElement) {
 				// since many different columns use the same class tag,
@@ -72,7 +72,7 @@ func (bc *BasketballCrawler) Crawl() []events.SportEvent {
 	return <-resultChan
 }
 
-func (bc *BasketballCrawler) SaveToMongo(events []events.SportEvent) {
+func (bc *BasketballCrawler) SaveToMongo(events []models.SportEvent) {
 	// connect to mongo
 	databaseName := "sportevents"
 	collectionName := "basketball"

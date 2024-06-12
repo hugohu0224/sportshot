@@ -16,7 +16,6 @@ function searchEvents() {
     const sportType = document.getElementById('sportType').value;
     const startDate = document.getElementById('startDate').value;
     const endDate = document.getElementById('endDate').value;
-
     const queryParams = new URLSearchParams({
         leagueName: leagueName,
         homeName: homeName,
@@ -26,13 +25,37 @@ function searchEvents() {
         endDate: endDate
     }).toString();
 
-    fetch(`/v1/events/query?${queryParams}`)
-        .then(response => response.json())
+    const jwtToken = localStorage.getItem('jwtToken');
+    if (!jwtToken) {
+        alert('JWT Token not found, please login');
+        // redirect
+        window.location.href = '/v1/auth/login';
+        return;
+    }
+
+    fetch(`/v1/events/query?${queryParams}`, {
+        headers: {
+            'Authorization': `Bearer ${jwtToken}`,
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            if (!response.ok) {
+                if (response.status === 401) {
+                    alert('Session expired. Please log in again.');
+                    localStorage.removeItem('jwtToken');
+                    // redirect
+                    window.location.href = '/v1/auth/login';
+                } else {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+            }
+            return response.json();
+        })
         .then(data => {
             const events = data.data.events;
             const tableBody = document.getElementById('eventTable').getElementsByTagName('tbody')[0];
             tableBody.innerHTML = '';
-
             events.forEach(event => {
                 let formattedTimestamp = formatDate(event.timestamp);
                 let row = `<tr>
