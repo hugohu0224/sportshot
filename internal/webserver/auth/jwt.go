@@ -36,7 +36,7 @@ func GetJwtKey() (string, error) {
 
 	// if not defined in env, try to get from file
 	if jwtKeyString == "" {
-		data, err := os.ReadFile("jwtkey")
+		data, err := os.ReadFile("jwtKey")
 		if err != nil || len(data) == 0 {
 			zap.S().Infof("failed when read jwtKey: %v", err)
 		} else {

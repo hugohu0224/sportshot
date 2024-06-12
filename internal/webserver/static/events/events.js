@@ -28,7 +28,7 @@ function searchEvents() {
     const jwtToken = localStorage.getItem('jwtToken');
     if (!jwtToken) {
         alert('JWT Token not found, please login');
-        redirect
+        // redirect
         window.location.href = '/v1/auth/login';
         return;
     }
@@ -39,7 +39,6 @@ function searchEvents() {
             'Content-Type': 'application/json'
         }
     })
-        // .then(response => response.json())
         .then(response => {
             if (!response.ok) {
                 if (response.status === 401) {
