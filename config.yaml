@@ -2,5 +2,9 @@
 CRAWL_SECOND_INTERVAL : 30
 
 # JWT secret auto generate
-# defined  environment variables JWT_SECRET if JWT_SECRET_AUTO is false
+# please define the environment variables `JWT_SECRET` (byte32)
+# when JWT_SECRET_AUTO is set to false
 JWT_SECRET_AUTO : true
+
+# Control the event results limit
+EVENT_RESULTS_LIMIT : 1000

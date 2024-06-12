@@ -2,8 +2,10 @@ package events
 
 import (
 	"context"
+	"github.com/spf13/viper"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.uber.org/zap"
 	"sportshot/pkg/utils/global"
 	"sportshot/pkg/utils/proto"
@@ -60,7 +62,7 @@ func (s *EventServer) SearchEvents(ctx context.Context, req *proto.SearchEventsR
 
 	// start to search
 	zap.S().Infof("start to search by filter : %v", filter)
-	cursor, err := collection.Find(context.TODO(), filter)
+	cursor, err := collection.Find(context.TODO(), filter, options.Find().SetLimit(viper.GetInt64("EVENT_RESULTS_LIMIT")))
 	if err != nil {
 		return nil, err
 	}
