@@ -1,22 +1,22 @@
 document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the traditional form submission
+    event.preventDefault(); // prevent the traditional form submission
 
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
-    // Create the payload for the POST request
+    // create the payload for the POST request
     var data = {
         username: username,
         password: password
     };
 
-    // Check if username or password is empty
+    // check if username or password is empty
     if (!username || !password) {
         alert('Username and password cannot be empty.');
-        return; // Exit the function early if validation fails
+        return; // exit the function early if validation fails
     }
 
-    // Execute the POST request to the login API
+    // execute the POST request to the login API
     fetch('/v1/auth/login', {
         method: 'POST',
         headers: {

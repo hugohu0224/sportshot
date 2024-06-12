@@ -7,7 +7,6 @@ import (
 
 func InitAuthRouter(router *gin.RouterGroup) {
 	Router := router.Group("/auth")
-
 	{
 		Router.Static("/static", "./internal/webserver/static/auth")
 
@@ -18,6 +17,5 @@ func InitAuthRouter(router *gin.RouterGroup) {
 		Router.POST("/login", api.AuthenticateLogin)
 
 		Router.GET("/validate", api.Validate)
-
 	}
 }
