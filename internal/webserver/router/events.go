@@ -7,15 +7,14 @@ import (
 )
 
 func InitEventRouter(router *gin.RouterGroup) {
-	Router := router.Group("/events")
 	{
+		Router := router.Group("/events")
 		Router.Static("/static", "./internal/webserver/static/events")
 		Router.GET("/search", api.GetSearchPage)
 	}
-
-	protectedRouter := router.Group("/events")
 	{
-		protectedRouter.Use(auth.AuthMiddleware())
+		protectedRouter := router.Group("/events")
+		protectedRouter.Use(auth.JwtAuthMiddleware())
 		protectedRouter.GET("/query", api.GetEvents)
 	}
 }

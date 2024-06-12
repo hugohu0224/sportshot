@@ -116,7 +116,7 @@ func ValidateToken(jwtToken string, jwtKey []byte) (*jwt.Token, error) {
 	return token, nil
 }
 
-func AuthMiddleware() gin.HandlerFunc {
+func JwtAuthMiddleware() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		jwtKeyString, err := GetJwtKey()
 		if err != nil {
