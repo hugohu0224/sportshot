@@ -9,7 +9,7 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"net/http"
 	"sportshot/pkg/utils/global"
-	"sportshot/pkg/utils/models/events"
+	"sportshot/pkg/utils/models"
 	"sportshot/pkg/utils/proto"
 	"sportshot/pkg/utils/tools"
 )
@@ -32,7 +32,7 @@ func GetSearchPage(ctx *gin.Context) {
 }
 
 func GetEvents(ctx *gin.Context) {
-	var f events.SearchEventsForm
+	var f models.SearchEventsForm
 	// empty query params
 	if len(ctx.Request.URL.Query()) == 0 {
 		ctx.JSON(200, gin.H{
