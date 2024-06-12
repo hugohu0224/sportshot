@@ -61,6 +61,7 @@ func InitOldDataForDemo(dbName string, collectionName string, filePath string) {
 	}
 
 	// read
+	zap.S().Info("trying to init mongodb data")
 	jsonData, err := os.ReadFile(filePath)
 	if err != nil {
 		log.Fatal(err)
@@ -86,5 +87,5 @@ func InitOldDataForDemo(dbName string, collectionName string, filePath string) {
 	if err != nil {
 		zap.S().Errorf("failed to insert data into mongodb : %v", err)
 	}
-	zap.S().Info("successfully inserted data into mongodb")
+	zap.S().Info("successfully inserted old data into mongodb")
 }

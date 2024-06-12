@@ -48,7 +48,6 @@ func main() {
 	// sometimes BetsAPI will ask users to log in during the rush time,
 	// so the crawler can't crawl the data directly, in order to make the demo more convenient,
 	// so we initial the old data in the beginning
-	zap.S().Info("trying to init mongodb data")
 	db.InitOldDataForDemo("sportevents", "basketball", "./pkg/files/sportevents.basketball.json")
 
 	// start to serve

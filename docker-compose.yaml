@@ -98,6 +98,7 @@ services:
     container_name: webserver
     depends_on:
       - eventserver
+      - mysql
     volumes:
       - ./config.yaml:/app/config.yaml
 

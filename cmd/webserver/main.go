@@ -1,10 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"go.uber.org/zap"
 	"sportshot/internal/webserver/initinal"
 	"sportshot/pkg/utils/db"
 	"sportshot/pkg/utils/global"
+	"sportshot/pkg/utils/tools"
 )
 
 func main() {
@@ -29,8 +31,15 @@ func main() {
 	global.MySQLClient = db.GetMySQLClient()
 	zap.S().Info("mysql client initialized")
 
+	// shortcut to visit webserver
+	host, err := tools.GetLocalHost()
+	if err != nil {
+		zap.S().Errorf("get local host err: %v", err)
+	}
+	fmt.Printf("Click here to visit SportShot --->  http://%v:8080/v1/auth/login \n", host)
+
 	// start
-	err := Router.Run("0.0.0.0:8080")
+	err = Router.Run(":8080")
 	if err != nil {
 		zap.S().Panicf("fail to start web server")
 	}
