@@ -29,7 +29,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
             return response.json();
         }
         if (response.status===400) {
-            alert('This username has already been taken.');
+            throw new Error('This username has already been taken.');
         }else {
             throw new Error('Register failed. Please try again.');
         }
@@ -37,6 +37,6 @@ document.getElementById('registerForm').addEventListener('submit', function(even
         // redirect
         window.location.href = '/v1/auth/login';
     }).catch(error => {
-        alert('Error during register');
+        alert(error.message);
     });
 });
