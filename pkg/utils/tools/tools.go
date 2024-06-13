@@ -46,7 +46,7 @@ func GetLocalHost() (string, error) {
 			return ip.String(), nil
 		}
 	}
-	return "", errors.New("connected network is not found")
+	return "", errors.New("network is not found")
 }
 
 func TimeOutCtx(s int) (context.Context, context.CancelFunc) {
@@ -54,7 +54,7 @@ func TimeOutCtx(s int) (context.Context, context.CancelFunc) {
 }
 
 func CrawlerTicker(crawler crawler.Crawler, timeInterval int) {
-	zap.S().Infof("Start to crawl")
+	zap.S().Infof("start to crawl")
 	events := crawler.Crawl()
 	crawler.SaveToMongo(events)
 
