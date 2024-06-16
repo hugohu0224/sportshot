@@ -65,7 +65,7 @@ func (bc *BasketballCrawler) Crawl() []models.SportEvent {
 		fmt.Println("visiting", r.URL.String())
 	})
 
-	if err := c.Visit("https://tw.betsapi.com/ciz/basketball"); err != nil {
+	if err := c.Visit("https://betsapi.com/ciz/basketball"); err != nil {
 		return nil
 	}
 
