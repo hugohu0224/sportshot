@@ -21,7 +21,7 @@ tool helps you keep track of changes in sports odds efficiently and effectively.
 * :white_check_mark: Implement the get method to receive user parameters.
 * :white_check_mark: Implement the accessing process the event server via the grpc client.
 * :white_check_mark: Implement user registration function to make the service available to others(by local).
-* :black_square_button: Implement JWT to make sure that the user is allowed to access a specific page.
+* :white_check_mark: Implement JWT to make sure that the user is allowed to access a specific page.
 
 ### WebUI
 
