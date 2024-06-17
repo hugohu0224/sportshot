@@ -37,7 +37,7 @@ func RegisterServiceToEtcd(cli *clientv3.Client, serverName string, serverHost s
 	// register
 	_, err = cli.Put(context.TODO(), serverInfo["key"], serverInfo["value"], clientv3.WithLease(lease.ID))
 	if err != nil {
-		zap.S().Errorf("Failed to register to etcd with lease: %v", err)
+		zap.S().Errorf("failed to register to etcd with lease: %v", err)
 		return err
 	}
 

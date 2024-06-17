@@ -4,19 +4,19 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
-    // Create the payload for the POST request
+    // create the payload for the POST request
     var data = {
         username: username,
         password: password
     };
 
-    // Check if username or password is empty
+    // check if username or password is empty
     if (!username || !password) {
         alert('Username and password cannot be empty.');
         return; // Exit the function early if validation fails
     }
 
-    // Execute the POST request to the regieter API
+    // execute the POST request to the regieter API
     fetch('/v1/auth/register', {
         method: 'POST',
         headers: {
