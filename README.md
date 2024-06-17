@@ -53,6 +53,9 @@ it will be anti-crawler, if it is only for test, please remember to use docker s
 in order to avoid the IP being blocked by BetsAPI.
 ![Alt text](pkg/files/dockerstop.png)
 
+## Project Structure
+![Alt text](pkg/files/projectstructure.png)
+
 ## Todo List
 ### Crawler
 
