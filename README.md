@@ -74,7 +74,7 @@ in order to avoid the IP being blocked by BetsAPI.
 
 * :white_check_mark: Implement the front-end page for odds searching.
 * :white_check_mark: Implement a button to control the on/off of the crawler.
-* :x: Made the front-end webpage to display the crawled odds in real time.
+* :black_square_button: Made the front-end webpage to display the crawled odds in real time.
 
 ### EventServer(grpc)
 
