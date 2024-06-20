@@ -10,9 +10,10 @@ tool helps you keep track of changes in sports odds efficiently and effectively.
 
 ## Getting started
 ### Pre required on your device
-* `Linux`
-* `Git`
-* `Docker Compose`
+* `Linux` Ubuntu 20.04.4 LTS
+* `Git` 2.25.1
+* `Docker` 26.1.3
+* `Docker Compose` 2.27.0
 
 ### 1. Git
 ```
