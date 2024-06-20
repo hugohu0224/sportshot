@@ -8,11 +8,11 @@ tool helps you keep track of changes in sports odds efficiently and effectively.
 
 ![Alt text](pkg/files/architecture.png)
 
-## Quick Start
-### Pre required on your device :
+## Getting started
+### Pre required on your device
 * `Linux`
-* `git`
-* `docker-compose`
+* `Git`
+* `Docker Compose`
 
 ### 1. Git
 ```
@@ -20,7 +20,7 @@ git clone https://github.com/hugohu0224/sportshot.git
 ```
 ![Alt text](pkg/files/gitclone.png)
 
-### 2. Docker
+### 2. Docker Compose
 ```
 cd sportshot
 docker-compose up -d
