@@ -19,7 +19,6 @@ tool helps you keep track of changes in sports odds efficiently and effectively.
 ```
 git clone https://github.com/hugohu0224/sportshot.git
 ```
-![Alt text](pkg/files/gitclone.png)
 
 ### 2. Docker Compose
 ```
@@ -33,21 +32,17 @@ docker ps -a
 ```
 ![Alt text](pkg/files/docker.png)
 
-### 4. Visit web server
+### 4. Login and Register
 * Please click "Sign Up" to register for the first time.
 ```
 http://localhost:8080/v1/auth/login
 ```
 ![Alt text](pkg/files/login.png)
 
-### 5. Register
-
-![Alt text](pkg/files/siginup.png)
-
-### 6. Start to search sport events
+### 5. Start to search sport events
 ![Alt text](pkg/files/search.png)
 
-### Take care
+## Take care
 The default speed of crawler is 30 seconds, set in config.yaml.
 Sportshot has not been optimized for anti-crawler, if the crawler is too many times or too fast, 
 it will be anti-crawler, if it is only for test, please remember to use docker stop to shut down the crawler, 
